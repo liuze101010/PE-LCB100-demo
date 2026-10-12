@@ -21,7 +21,7 @@ from polymer_agent_demo.scripts import doctor
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def test_demo_blocks_live_flags_project_detection_and_execution(monkeypatch):
+def test_demo_blocks_live_flags_project_detection_and_execution(monkeypatch, tmp_path):
     from polymer_agent_demo import app as application
 
     for field in (
@@ -30,7 +30,7 @@ def test_demo_blocks_live_flags_project_detection_and_execution(monkeypatch):
     ):
         monkeypatch.setenv(field, "1")
     monkeypatch.setenv("POLYMER_AGENT_DEMO_MODE", "connected")
-    monkeypatch.setenv("POLYMER_AGENT_ROOT", str(ROOT.parents[3]))
+    monkeypatch.setenv("POLYMER_AGENT_ROOT", str(tmp_path / "unrelated_workspace"))
     monkeypatch.setenv("OPENAI_API_KEY", "test-only-never-sent")
 
     def fail(*args, **kwargs):
@@ -81,7 +81,7 @@ assert not (app.state.demo_service.snapshot_path.parent.parent / '.runtime').exi
 print('offline import isolated')
 '''
     env = {key: value for key, value in os.environ.items() if not key.startswith("POLYMER_AGENT_")}
-    env.update({"PYTHONPATH": str(tmp_path), "POLYMER_AGENT_ROOT": str(ROOT.parents[3]), "POLYMER_AGENT_REAL_SMOKE": "1", "POLYMER_AGENT_LIVE_INTENT": "1"})
+    env.update({"PYTHONPATH": str(tmp_path), "POLYMER_AGENT_ROOT": str(tmp_path / "unrelated_workspace"), "POLYMER_AGENT_REAL_SMOKE": "1", "POLYMER_AGENT_LIVE_INTENT": "1"})
     result = subprocess.run([sys.executable, "-c", code], cwd=tmp_path, env=env, capture_output=True, text=True, timeout=30)
     assert result.returncode == 0, result.stderr
     assert result.stdout.strip() == "offline import isolated"
