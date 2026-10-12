@@ -1,0 +1,152 @@
+{
+  "catalog_id": "pelcb100_design_source_catalog.v1",
+  "description": "Local design-source catalog for PE-LCB100 grammar-constrained candidate-manifest provenance. This catalog records retained design anchors; it is not a live literature search log.",
+  "sources": [
+    {
+      "source_id": "project_pe_lcb_control_design",
+      "title": "Project PE-LCB control design",
+      "source_type": "project_design_scope",
+      "role": "Defines PE-LCB100 as a polyethylene chemistry-control companion to the PP-LCB topology grammar under C100 constraints.",
+      "aliases": ["Project PE-LCB control design", "PE-LCB100", "polyethylene chemistry-control companion"],
+      "metadata_status": "project_internal"
+    },
+    {
+      "source_id": "gloger_2022_lcb_topology",
+      "title": "Long-Chain Branched Polypropylene: Effects of Chain Architecture, Melt Structure, Shear Modification, and Solution Treatment on Melt Relaxation Dynamics",
+      "source_type": "literature_anchor",
+      "role": "Anchors star, comb, H-architecture, and pom-pom long-chain-branched topology classes used by the inherited LCB grammar.",
+      "aliases": ["Gloger 2022"],
+      "authors": ["Dietrich Gloger", "Daniela Mileva", "Andreas Albrecht", "Gerhard Hubner", "Rene Androsch", "Markus Gahleitner"],
+      "year": 2022,
+      "journal": "Macromolecules",
+      "volume": "55",
+      "issue": "7",
+      "pages": "2588-2608",
+      "doi": "10.1021/acs.macromol.1c02113",
+      "url": "https://doi.org/10.1021/acs.macromol.1c02113",
+      "zotero_item_key": "9PHKK2D2",
+      "evidence_scope": "LCB chain-architecture classes and melt-structure context; used as topology/design grammar context, not as direct PE-LCB property data.",
+      "metadata_status": "zotero_metadata_verified"
+    },
+    {
+      "source_id": "yazdanbakhsh_2025_lcb_distribution",
+      "title": "Molecular dynamics study of short-chain branching effects on melt behavior of entangled polyethylene: A deep insight of efficacy of branches length, content and distribution",
+      "source_type": "literature_anchor",
+      "role": "Provides polyethylene MD context for branch length, branch content, and branch distribution effects; used to motivate branch-distribution scans within the PE-LCB100 grammar.",
+      "aliases": ["Yazdanbakhsh 2025"],
+      "authors": ["Amirhosein Yazdanbakhsh", "Ghodratollah Hashemi Motlagh"],
+      "year": 2025,
+      "journal": "Journal of Polymer Research",
+      "volume": "32",
+      "issue": "7",
+      "doi": "10.1007/s10965-025-04467-0",
+      "url": "https://doi.org/10.1007/s10965-025-04467-0",
+      "zotero_item_key": "X2L75J9Q",
+      "evidence_scope": "Branch length, content and distribution context for polyethylene melt simulations; used as design-variable context, not as direct PE-LCB property data.",
+      "metadata_status": "zotero_metadata_verified"
+    },
+    {
+      "source_id": "mcleish_tube_pompom_context",
+      "title": "Molecular constitutive equations for a class of branched polymers: The pom-pom polymer",
+      "source_type": "literature_anchor",
+      "role": "Provides rheology/topology context for H-like and pom-pom branched architectures.",
+      "aliases": ["McLeish tube-theory classic", "McLeish 1998 pom-pom model", "McLeish"],
+      "authors": ["T. C. B. McLeish", "R. G. Larson"],
+      "year": 1998,
+      "journal": "Journal of Rheology",
+      "volume": "42",
+      "issue": "1",
+      "pages": "81-110",
+      "doi": "10.1122/1.550933",
+      "url": "https://doi.org/10.1122/1.550933",
+      "evidence_scope": "Pom-pom branched-polymer architecture and tube-theory context; used as topology grammar context, not as direct MD validation data.",
+      "metadata_status": "public_metadata_verified"
+    },
+    {
+      "source_id": "jie_2026_long_arm_lcb_context",
+      "title": "Molecular Modulation Mechanisms of Strength-Toughness Performance in Long-Chain Branched Polyethylene",
+      "source_type": "literature_anchor",
+      "role": "Provides long-arm LCB context for pom-pom and long-branch cases retained in the grammar.",
+      "aliases": ["Jie 2026"],
+      "authors": ["Maoyan Jie", "Yali Zhang", "Ruijuan Liu", "Xiaogang Zhang", "Zhongmin Jin"],
+      "year": 2026,
+      "journal": "Macromolecules",
+      "volume": "59",
+      "issue": "6",
+      "pages": "3885-3896",
+      "doi": "10.1021/acs.macromol.5c03206",
+      "url": "https://doi.org/10.1021/acs.macromol.5c03206",
+      "zotero_item_key": "657NACUX",
+      "evidence_scope": "Long-chain-branched polyethylene context; used as long-arm architecture context, not as direct PE-LCB100 target data.",
+      "metadata_status": "zotero_metadata_verified"
+    },
+    {
+      "source_id": "new_high_branch_topology_extension",
+      "title": "Agent-added high-branch topology extension",
+      "source_type": "agent_design_extension",
+      "role": "Records b=4/b=5 clustered, gradient, pom-pom, and uniform-comb extensions that fill topology/ML coverage gaps beyond the retained literature anchors.",
+      "aliases": [
+        "Four-branch clustered (new)",
+        "Four-branch gradient spacing (new)",
+        "Four-branch pom-pom topology (new)",
+        "Four-branch uniform comb (new)",
+        "Five-branch clustered (new)",
+        "Five-branch gradient spacing (new)",
+        "Five-branch pom-pom topology (new)",
+        "Five-branch uniform comb (new)"
+      ],
+      "metadata_status": "agent_generated_extension"
+    },
+    {
+      "source_id": "three_point_topology_extension",
+      "title": "Three-point symmetric branch-placement extension",
+      "source_type": "agent_design_extension",
+      "role": "Records a symmetric three-point placement used to improve branch-placement coverage within the frozen grammar.",
+      "aliases": ["Three-point symmetric branching"],
+      "metadata_status": "agent_generated_extension"
+    },
+    {
+      "source_id": "radonpy_automation_context",
+      "title": "RadonPy automated polymer-MD context",
+      "source_type": "automation_context",
+      "role": "Context source for automated all-atom polymer MD and polymer-informatics data products; not used as a direct PE-LCB topology source.",
+      "aliases": ["RadonPy"],
+      "url": "https://github.com/RadonPy/RadonPy",
+      "metadata_status": "public_context"
+    },
+    {
+      "source_id": "spacier_automation_context",
+      "title": "SPACIER on-demand polymer-design context",
+      "source_type": "automation_context",
+      "role": "Context source for automated MD integrated into polymer design and ML workflows; not used as a direct PE-LCB topology source.",
+      "aliases": ["SPACIER"],
+      "metadata_status": "source_metadata_incomplete"
+    },
+    {
+      "source_id": "htpmd_data_context",
+      "title": "HTPMD public data context",
+      "source_type": "public_data_context",
+      "role": "Context source for high-throughput polymer/electrolyte MD data extraction and rule-profile evidence providers.",
+      "aliases": ["HTPMD", "HTP-MD"],
+      "url": "https://github.com/TRI-AMDD/htp_md",
+      "metadata_status": "public_context"
+    },
+    {
+      "source_id": "polyinfo_data_context",
+      "title": "PoLyInfo public polymer-property context",
+      "source_type": "public_data_context",
+      "role": "Context source for polymer-property evidence when official exports or local caches are available; not scraped in this workflow.",
+      "aliases": ["PoLyInfo"],
+      "url": "https://polymer.nims.go.jp/",
+      "metadata_status": "public_context_requires_export"
+    },
+    {
+      "source_id": "oplsaa_hydrocarbon_benchmark_context",
+      "title": "OPLS-AA hydrocarbon benchmark context",
+      "source_type": "force_field_context",
+      "role": "Context source for force-field and hydrocarbon-density interpretation; not a topology source for the manifest.",
+      "aliases": ["OPLS-AA", "hydrocarbon benchmark", "long-hydrocarbon"],
+      "metadata_status": "source_metadata_incomplete"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+* text=auto eol=lf
+
+# Keep the registered scientific source and fixture bytes equal to the bundle.
+science_core/** -text
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.zip binary
+*.pdf binary
+*.tiff binary
+*.tif binary

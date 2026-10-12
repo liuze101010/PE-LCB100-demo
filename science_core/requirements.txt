@@ -1,0 +1,10 @@
+jsonschema>=4.26,<5
+matplotlib>=3.10,<4
+mcp>=1.27,<2
+numpy>=2.4,<3
+pandas>=3.0,<4
+pillow>=12.2,<13
+pydantic>=2.13,<3
+python-pptx>=1.0,<2
+PyYAML>=6.0,<7
+rdkit>=2026.3.5,<2027

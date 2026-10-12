@@ -1,0 +1,61 @@
+{
+  "schema_version": "polymer_agent_demo.source_manifest.v1",
+  "data_version": "pelcb100_closed_loop_final_20260718",
+  "generated_at_utc": "2026-08-10T13:58:18Z",
+  "sources": [
+    {
+      "source_id": "tri_model_audit",
+      "public_name": "warn_audit_diagnosis_merged.jsonl",
+      "role": "真实三模型逐案例投票与最终归因",
+      "sha256": "sha256:1fc143cc26670e182689cb805cf7d62494791b67c5113ad500ce215aa31cefed"
+    },
+    {
+      "source_id": "tri_model_summary",
+      "public_name": "warn_audit_merged_summary.json",
+      "role": "全量 WARN 审计汇总",
+      "sha256": "sha256:031d6854d8b4336915142608d0052a4efd073d99ca6a5d3885b3d7ffdac8b502"
+    },
+    {
+      "source_id": "msd_overlay",
+      "public_name": "msd_window_overlay_changes.csv",
+      "role": "MSD 窗口修复 sidecar 明细",
+      "sha256": "sha256:21eb27ebc6e4df9ceb62cb087887ba79387826450e3cb20ed738af69fe99d9f0"
+    },
+    {
+      "source_id": "msd_overlay_summary",
+      "public_name": "msd_window_overlay_summary.json",
+      "role": "MSD overlay 与 ML-usable 汇总",
+      "sha256": "sha256:05e87b647b3f593965e7c87ac50797c662cb603b4f1f348a8c2762194d9be8b5"
+    },
+    {
+      "source_id": "clean_density",
+      "public_name": "o7_clean_density_summary.csv",
+      "role": "clean-control 密度证据",
+      "sha256": "sha256:3bdcfe72b40dc231b09b970c7ca2461044064a7d235685c0801ec815d534df52"
+    },
+    {
+      "source_id": "clean_status",
+      "public_name": "o7_clean_run_status.csv",
+      "role": "clean MD 阶段完成状态",
+      "sha256": "sha256:74fbd7fd6c669805706196a6528aec200087def59fdaf432a49c4e751ebad771"
+    },
+    {
+      "source_id": "clean_summary",
+      "public_name": "o7_clean_closure_summary.json",
+      "role": "clean closure 运行汇总",
+      "sha256": "sha256:1f3cddd9dbdb3187ded2785bb07deb0947902922096f862085cc44bddb4cba4d"
+    },
+    {
+      "source_id": "mcp_server",
+      "public_name": "pelcb_mcp_server.py",
+      "role": "只读查询与 dry-run 路由实现",
+      "sha256": "sha256:847117d4c4a1b20aacfae283a6272682494b07fd456da6feffcfa4704bae8892"
+    },
+    {
+      "source_id": "terminal_outcomes",
+      "public_name": "terminal_release_outcomes.json",
+      "role": "100 个案例的当前终态、结果门禁与最终指标",
+      "sha256": "sha256:4018d95020a79010f78e4a62e29958683f388e6cf04f46c92ba425e13b338598"
+    }
+  ]
+}

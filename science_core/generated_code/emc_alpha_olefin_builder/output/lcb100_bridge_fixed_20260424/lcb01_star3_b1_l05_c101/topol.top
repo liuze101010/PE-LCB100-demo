@@ -1,0 +1,20 @@
+; Minimal GROMACS topology generated from EMC outputs
+; Scope: topology/coordinate bridge test only, not yet a production-validated force-field translation.
+
+[ defaults ]
+; nbfunc  comb-rule  gen-pairs  fudgeLJ  fudgeQQ
+1         3          yes        0.5      0.5
+
+[ atomtypes ]
+; name  at.num  mass     charge  ptype  sigma(nm)  epsilon(kJ/mol)
+c4         6  12.01100   0.0000  A    0.350000      0.276144
+h1         1   1.00790   0.0000  A    0.250000      0.125520
+
+#include "lcb01_star3_b1_l05_c101_polymer.itp"
+
+[ system ]
+EMC bridge test for LCB01_STAR3_B1_L05_C101
+
+[ molecules ]
+; name  count
+LCB01_STAR3_B1_L05_C101  150

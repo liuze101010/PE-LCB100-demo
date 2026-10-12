@@ -1,0 +1,16 @@
+.git
+.github
+.venv
+.venv-platform
+.runtime
+.pytest_cache
+__pycache__
+*.pyc
+*.pyo
+*.log
+*.db
+*.sqlite*
+.env
+tmp
+screenshots
+tests

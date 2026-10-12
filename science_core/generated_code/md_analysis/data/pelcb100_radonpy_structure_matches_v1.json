@@ -1,0 +1,1428 @@
+{
+  "schema_version": "pelcb_radonpy_structure_matches.v1",
+  "algorithm": {
+    "version": "full_chain_atom_pair_count_tanimoto.v1",
+    "rdkit_version": "2025.09.6",
+    "fingerprint": "unhashed sparse atom-pair count fingerprint",
+    "similarity": "count Tanimoto",
+    "reference_expansion": "repeat unit expanded to the closest target carbon count",
+    "tier_thresholds": {
+      "high": ">=0.90",
+      "medium": "0.80-0.90",
+      "distant": "<0.80"
+    }
+  },
+  "source_sha256": "4ee41d526db3d03eb5b83010672b4e63a4d51a114871a2187ca7fd57d30556a4",
+  "density_screening_range": [
+    0.73,
+    0.87
+  ],
+  "case_count": 100,
+  "tier_counts": {
+    "high": 21,
+    "medium": 46,
+    "distant": 33
+  },
+  "matches": [
+    {
+      "case_id": "lcb_pe_001_bp01_bc005_pdmid_c101",
+      "structure_similarity_score": 0.936009,
+      "structure_similarity_tier": "high",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 101,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_002_bp01_bc008_pdmid_c100",
+      "structure_similarity_score": 0.920256,
+      "structure_similarity_tier": "high",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_003_bp01_bc012_pdmid_c100",
+      "structure_similarity_score": 0.895393,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_004_bp01_bc016_pdmid_c100",
+      "structure_similarity_score": 0.876568,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_005_bp01_bc020_pdmid_c100",
+      "structure_similarity_score": 0.863105,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_006_bp01_bc008_pdend_c100",
+      "structure_similarity_score": 0.93181,
+      "structure_similarity_tier": "high",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_007_bp01_bc012_pdend_c100",
+      "structure_similarity_score": 0.914803,
+      "structure_similarity_tier": "high",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_008_bp01_bc016_pdend_c100",
+      "structure_similarity_score": 0.90625,
+      "structure_similarity_tier": "high",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_009_bp02_bc005_pduni_c100",
+      "structure_similarity_score": 0.903461,
+      "structure_similarity_tier": "high",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_010_bp02_bc008_pduni_c100",
+      "structure_similarity_score": 0.902793,
+      "structure_similarity_tier": "high",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_011_bp02_bc012_pduni_c100",
+      "structure_similarity_score": 0.901911,
+      "structure_similarity_tier": "high",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_012_bp02_bc016_pduni_c100",
+      "structure_similarity_score": 0.90104,
+      "structure_similarity_tier": "high",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_013_bp02_bc020_pduni_c100",
+      "structure_similarity_score": 0.900178,
+      "structure_similarity_tier": "high",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_014_bp02_bc008_pdterm_c100",
+      "structure_similarity_score": 0.875172,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_015_bp02_bc012_pdterm_c100",
+      "structure_similarity_score": 0.849069,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_016_bp02_bc016_pdterm_c100",
+      "structure_similarity_score": 0.837255,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_017_bp02_bc020_pdterm_c100",
+      "structure_similarity_score": 0.835501,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_018_bp02_bc008_pddb_c100",
+      "structure_similarity_score": 0.834143,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_019_bp02_bc012_pddb_c100",
+      "structure_similarity_score": 0.775602,
+      "structure_similarity_tier": "distant",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_020_bp03_bc005_pduni_c101",
+      "structure_similarity_score": 0.880014,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 101,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_021_bp03_bc008_pduni_c100",
+      "structure_similarity_score": 0.889081,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_022_bp03_bc012_pduni_c100",
+      "structure_similarity_score": 0.857286,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_023_bp03_bc016_pduni_c100",
+      "structure_similarity_score": 0.82285,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_024_bp03_bc008_pdterm_c100",
+      "structure_similarity_score": 0.8192,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_025_bp03_bc012_pdterm_c100",
+      "structure_similarity_score": 0.787228,
+      "structure_similarity_tier": "distant",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_026_bp03_bc016_pdterm_c100",
+      "structure_similarity_score": 0.749708,
+      "structure_similarity_tier": "distant",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_027_bp03_bc012_pdclus_c100",
+      "structure_similarity_score": 0.708183,
+      "structure_similarity_tier": "distant",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_028_bp01_bc020_pdend_c100",
+      "structure_similarity_score": 0.893808,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_029_bp02_bc020_pddb_c100",
+      "structure_similarity_score": 0.71223,
+      "structure_similarity_tier": "distant",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_030_bp03_bc020_pdterm_c100",
+      "structure_similarity_score": 0.730068,
+      "structure_similarity_tier": "distant",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_031_bp01_bc003_pdmid_c101",
+      "structure_similarity_score": 0.954311,
+      "structure_similarity_tier": "high",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 101,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_032_bp01_bc004_pdmid_c100",
+      "structure_similarity_score": 0.952837,
+      "structure_similarity_tier": "high",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_033_bp01_bc005_pdend_c101",
+      "structure_similarity_score": 0.958879,
+      "structure_similarity_tier": "high",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 101,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_034_bp01_bc005_pdend_c101",
+      "structure_similarity_score": 0.960674,
+      "structure_similarity_tier": "high",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 101,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_035_bp01_bc012_pdend_c100",
+      "structure_similarity_score": 0.94782,
+      "structure_similarity_tier": "high",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_036_bp01_bc003_pdend_c101",
+      "structure_similarity_score": 0.955893,
+      "structure_similarity_tier": "high",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 101,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_037_bp02_bc003_pduni_c100",
+      "structure_similarity_score": 0.904605,
+      "structure_similarity_tier": "high",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_038_bp02_bc004_pduni_c100",
+      "structure_similarity_score": 0.903685,
+      "structure_similarity_tier": "high",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_039_bp02_bc005_pdasym_c100",
+      "structure_similarity_score": 0.898353,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_040_bp02_bc008_pdasym_c100",
+      "structure_similarity_score": 0.873727,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_041_bp02_bc012_pdasym_c100",
+      "structure_similarity_score": 0.828719,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_042_bp02_bc016_pdasym_c100",
+      "structure_similarity_score": 0.80112,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_043_bp02_bc005_pdclus_c100",
+      "structure_similarity_score": 0.911429,
+      "structure_similarity_tier": "high",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_044_bp02_bc008_pdclus_c100",
+      "structure_similarity_score": 0.898708,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_045_bp02_bc012_pdclus_c100",
+      "structure_similarity_score": 0.867791,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_046_bp02_bc016_pdclus_c100",
+      "structure_similarity_score": 0.844992,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_047_bp02_bc005_pddb_c100",
+      "structure_similarity_score": 0.895178,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_048_bp02_bc008_pddb_c100",
+      "structure_similarity_score": 0.866689,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_049_bp02_bc012_pddb_c100",
+      "structure_similarity_score": 0.836748,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_050_bp02_bc016_pddb_c100",
+      "structure_similarity_score": 0.816107,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_051_bp02_bc003_pdterm_c100",
+      "structure_similarity_score": 0.89649,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_052_bp02_bc004_pdterm_c100",
+      "structure_similarity_score": 0.904932,
+      "structure_similarity_tier": "high",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_053_bp03_bc003_pduni_c101",
+      "structure_similarity_score": 0.865149,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 101,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_054_bp03_bc004_pduni_c100",
+      "structure_similarity_score": 0.862937,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_055_bp03_bc005_pdterm_c101",
+      "structure_similarity_score": 0.853138,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 101,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_056_bp03_bc003_pdterm_c101",
+      "structure_similarity_score": 0.857192,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 101,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_057_bp03_bc004_pdterm_c100",
+      "structure_similarity_score": 0.862222,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_058_bp03_bc005_pdclus_c101",
+      "structure_similarity_score": 0.858589,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 101,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_059_bp03_bc008_pdclus_c100",
+      "structure_similarity_score": 0.825581,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_060_bp03_bc012_pdclus_c100",
+      "structure_similarity_score": 0.756119,
+      "structure_similarity_tier": "distant",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_061_bp03_bc005_pdtri_c101",
+      "structure_similarity_score": 0.843575,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 101,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_062_bp03_bc008_pdtri_c100",
+      "structure_similarity_score": 0.791602,
+      "structure_similarity_tier": "distant",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_063_bp03_bc012_pdtri_c100",
+      "structure_similarity_score": 0.736358,
+      "structure_similarity_tier": "distant",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_064_bp03_bc003_pdclus_c101",
+      "structure_similarity_score": 0.84898,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 101,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_065_bp04_bc003_pduni_c100",
+      "structure_similarity_score": 0.80469,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_066_bp04_bc005_pduni_c100",
+      "structure_similarity_score": 0.831952,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_067_bp04_bc008_pduni_c100",
+      "structure_similarity_score": 0.80365,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_068_bp04_bc012_pduni_c100",
+      "structure_similarity_score": 0.736023,
+      "structure_similarity_tier": "distant",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_069_bp04_bc003_pdterm_c100",
+      "structure_similarity_score": 0.812994,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_070_bp04_bc005_pdterm_c100",
+      "structure_similarity_score": 0.815405,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_071_bp04_bc008_pdterm_c100",
+      "structure_similarity_score": 0.801311,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_072_bp04_bc012_pdterm_c100",
+      "structure_similarity_score": 0.77551,
+      "structure_similarity_tier": "distant",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_073_bp04_bc003_pdclus_c100",
+      "structure_similarity_score": 0.787316,
+      "structure_similarity_tier": "distant",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_074_bp04_bc005_pdclus_c100",
+      "structure_similarity_score": 0.768953,
+      "structure_similarity_tier": "distant",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_075_bp04_bc008_pdclus_c100",
+      "structure_similarity_score": 0.676609,
+      "structure_similarity_tier": "distant",
+      "nearest_radonpy_reference": "PI54",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 5,
+      "reference_expanded_carbon_count": 110,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_076_bp04_bc012_pdclus_c100",
+      "structure_similarity_score": 0.799812,
+      "structure_similarity_tier": "distant",
+      "nearest_radonpy_reference": "PI54",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 5,
+      "reference_expanded_carbon_count": 110,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_077_bp04_bc005_pdgrad_c100",
+      "structure_similarity_score": 0.832277,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_078_bp04_bc008_pdgrad_c100",
+      "structure_similarity_score": 0.821486,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_079_bp04_bc012_pdgrad_c100",
+      "structure_similarity_score": 0.751619,
+      "structure_similarity_tier": "distant",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_080_bp04_bc003_pdgrad_c100",
+      "structure_similarity_score": 0.806658,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_081_bp05_bc003_pduni_c101",
+      "structure_similarity_score": 0.768563,
+      "structure_similarity_tier": "distant",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 101,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_082_bp05_bc005_pduni_c101",
+      "structure_similarity_score": 0.786721,
+      "structure_similarity_tier": "distant",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 101,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_083_bp05_bc008_pduni_c100",
+      "structure_similarity_score": 0.729815,
+      "structure_similarity_tier": "distant",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_084_bp05_bc003_pdterm_c101",
+      "structure_similarity_score": 0.779392,
+      "structure_similarity_tier": "distant",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 101,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_085_bp05_bc005_pdterm_c101",
+      "structure_similarity_score": 0.793496,
+      "structure_similarity_tier": "distant",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 101,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_086_bp05_bc008_pdterm_c100",
+      "structure_similarity_score": 0.770795,
+      "structure_similarity_tier": "distant",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_087_bp05_bc003_pdclus_c101",
+      "structure_similarity_score": 0.746951,
+      "structure_similarity_tier": "distant",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 101,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_088_bp05_bc005_pdclus_c101",
+      "structure_similarity_score": 0.709318,
+      "structure_similarity_tier": "distant",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 101,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_089_bp05_bc008_pdclus_c100",
+      "structure_similarity_score": 0.731018,
+      "structure_similarity_tier": "distant",
+      "nearest_radonpy_reference": "PI56",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 6,
+      "reference_expanded_carbon_count": 96,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_090_bp05_bc003_pdgrad_c101",
+      "structure_similarity_score": 0.77575,
+      "structure_similarity_tier": "distant",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 101,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_091_bp04_bc016_pduni_c100",
+      "structure_similarity_score": 0.690095,
+      "structure_similarity_tier": "distant",
+      "nearest_radonpy_reference": "PI54",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 5,
+      "reference_expanded_carbon_count": 110,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_092_bp04_bc020_pduni_c100",
+      "structure_similarity_score": 0.758581,
+      "structure_similarity_tier": "distant",
+      "nearest_radonpy_reference": "PI54",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 5,
+      "reference_expanded_carbon_count": 110,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_093_bp05_bc012_pduni_c100",
+      "structure_similarity_score": 0.716066,
+      "structure_similarity_tier": "distant",
+      "nearest_radonpy_reference": "PI54",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 5,
+      "reference_expanded_carbon_count": 110,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_094_bp05_bc005_pdgrad_c101",
+      "structure_similarity_score": 0.802053,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 101,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_095_bp01_bc020_pdend_c100",
+      "structure_similarity_score": 0.950407,
+      "structure_similarity_tier": "high",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_096_bp02_bc020_pddb_c100",
+      "structure_similarity_score": 0.805886,
+      "structure_similarity_tier": "medium",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_097_bp03_bc020_pdtri_c100",
+      "structure_similarity_score": 0.701761,
+      "structure_similarity_tier": "distant",
+      "nearest_radonpy_reference": "PI54",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 5,
+      "reference_expanded_carbon_count": 110,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_098_bp03_bc016_pdtri_c100",
+      "structure_similarity_score": 0.699591,
+      "structure_similarity_tier": "distant",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_099_bp04_bc016_pdgrad_c100",
+      "structure_similarity_score": 0.692892,
+      "structure_similarity_tier": "distant",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    },
+    {
+      "case_id": "lcb_pe_100_bp05_bc008_pdgrad_c100",
+      "structure_similarity_score": 0.749043,
+      "structure_similarity_tier": "distant",
+      "nearest_radonpy_reference": "PI1",
+      "target_carbon_count": 100,
+      "reference_repeat_count": 50,
+      "reference_expanded_carbon_count": 100,
+      "density_screening_range": [
+        0.73,
+        0.87
+      ],
+      "density_range_source": "radonpy_pi1070_saturated_acyclic_40_record_envelope_400K"
+    }
+  ]
+}

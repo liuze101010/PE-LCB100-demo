@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Polymer-Agent论文案例回放：100例聚合物模拟的规则检查、审计处理与最终状态。">
+  <title>Polymer-Agent · 论文案例回放</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/auto.css">
+  <link rel="stylesheet" href="assets/pages.css">
+</head>
+<body>
+  <header class="topbar">
+    <div><div class="eyebrow">POLYMER-AGENT · 论文案例回放</div>
+      <h1>从研究目标到可追溯的模拟结果</h1>
+      <p class="paper-title">Validating LLM Agents for Reliable Polymer Simulations</p>
+    </div>
+    <nav class="topbar-right" aria-label="页面导航">
+      <a class="manual-link" href="#cases">查看100例</a>
+      <a class="manual-link" id="repositoryLink" href="https://github.com/liuze101010/PE-LCB100-demo" target="_blank" rel="noopener">GitHub 源码 ↗</a>
+    </nav>
+  </header>
+  <main class="auto-main">
+    <section class="howto" aria-label="演示说明">
+      <span class="section-kicker">公开演示</span>
+      <p>选择研究目标，查看论文中已保存的设计、检查和修复记录。页面使用本地公开数据回放案例。</p>
+      <p class="scope-note">研究体系：PE-LCB100 · 100个候选 · 最终状态92 PASS / 8 REVIEW。审计台账单独覆盖97例，共291张模型票。</p>
+    </section>
+    <section class="summary-grid" aria-label="论文记录汇总">
+      <div class="summary-card"><strong>100</strong><span>最终案例</span></div>
+      <div class="summary-card pass"><strong>92</strong><span>PASS · 通过</span></div>
+      <div class="summary-card review"><strong>8</strong><span>REVIEW · 待复核</span></div>
+      <div class="summary-card"><strong>97 / 291</strong><span>审计案例 / 模型票</span></div>
+    </section>
+    <section class="panel" aria-labelledby="workflowTitle">
+      <div class="panel-header"><div><span class="section-kicker">完整智能体流程</span><h2 id="workflowTitle">每一步都有记录与源码</h2></div><span class="state-label">展开步骤查看</span></div>
+      <nav class="auto-progress" id="workflowRail" aria-label="八步流程"></nav>
+      <div class="step-list" id="workflowDetails"></div>
+    </section>
+    <section class="panel" aria-labelledby="goalTitle">
+      <div class="panel-header"><div><span class="section-kicker">查看已有案例</span><h2 id="goalTitle">写一句目标或选择示例</h2></div></div>
+      <form class="search-form" id="searchForm">
+        <div class="presets" id="presets">
+          <button type="button" class="preset-chip" data-goal="查看PE-LCB100全部案例及最终状态">全部100例</button>
+          <button type="button" class="preset-chip" data-goal="查看PE006密度修复记录">密度修复 · PE006</button>
+          <button type="button" class="preset-chip" data-goal="查看PE002的MSD拟合窗口处理">MSD窗口 · PE002</button>
+          <button type="button" class="preset-chip" data-goal="查看PE068计算输出恢复">恢复输出 · PE068</button>
+          <button type="button" class="preset-chip" data-goal="查看待复核案例">8例待复核</button>
+        </div>
+        <label for="goalInput">研究目标、案例编号或结构条件</label>
+        <div class="composer-input"><input id="goalInput" type="search" autocomplete="off" placeholder="例如：查看4个支化点、12碳支链的案例"><button class="dry-run-button" type="submit">查看记录</button></div>
+        <p class="composer-hint">支持PE006、待复核、支化点数、支链碳数、mid / end / uni，以及记录中的文字。</p>
+      </form>
+      <p class="search-feedback" id="searchFeedback" role="status">正在载入公开记录…</p>
+    </section>
+    <section aria-labelledby="representativeTitle">
+      <div class="section-heading"><div><span class="section-kicker">三个代表案例</span><h2 id="representativeTitle">修复前后证据</h2></div><p>数值来自冻结记录；点击案例查看完整依据。</p></div>
+      <div class="representative-grid" id="representatives"></div>
+    </section>
+    <section class="panel" id="cases" aria-labelledby="casesTitle">
+      <div class="panel-header"><div><span class="section-kicker">100例最终状态</span><h2 id="casesTitle">结构、性质与复核结果</h2></div><span class="state-label" id="caseCount">100例</span></div>
+      <div class="case-toolbar"><label for="statusFilter">最终状态</label><select id="statusFilter"><option value="all">全部</option><option value="PASS">PASS · 通过</option><option value="REVIEW">REVIEW · 待复核</option></select><button class="text-button" id="clearSearch" type="button">显示全部</button></div>
+      <div class="status-grid" id="statusGrid" aria-label="100例状态网格"></div>
+      <div class="case-table-wrap"><table class="effect-table"><caption>密度单位 g/cm³；MSD log–log斜率为无量纲量。</caption><thead><tr><th scope="col">案例</th><th scope="col">支化点</th><th scope="col">支链碳数</th><th scope="col">位置</th><th scope="col">密度</th><th scope="col">MSD斜率</th><th scope="col">最终状态</th></tr></thead><tbody id="caseRows"></tbody></table></div>
+    </section>
+    <section class="panel" id="caseDetail" aria-labelledby="detailTitle" hidden>
+      <div class="panel-header"><div><span class="section-kicker">案例源记录</span><h2 id="detailTitle"></h2></div><button class="text-button" id="closeDetail" type="button">收起详情</button></div>
+      <div class="detail-body" id="detailBody"></div>
+    </section>
+    <section class="panel" aria-labelledby="sourceTitle">
+      <div class="panel-header"><div><span class="section-kicker">数据来源与下载</span><h2 id="sourceTitle">保留原记录、单位与文件哈希</h2></div></div>
+      <div class="download-body"><p id="dataVersion"></p><div class="download-links"><a class="export-button" href="data/pages_data.json" download>完整JSON</a><a class="export-button" href="data/cases.csv" download>100例CSV</a><a class="export-button" href="data/paper_replay.md" download>Markdown报告</a></div><div id="sourceFiles"></div><details><summary>原始证据来源清单</summary><div id="sourceManifest"></div></details></div>
+    </section>
+  </main>
+  <footer><span>论文案例回放 · PE-LCB100</span><span>公开数据载入后，浏览器在本地筛选已有记录。</span></footer>
+  <noscript><p class="noscript-note">启用JavaScript即可查看交互案例；公开记录可直接下载：<a href="data/cases.csv">CSV</a>、<a href="data/pages_data.json">JSON</a>。</p></noscript>
+  <script src="assets/pages.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+{
+  "project_id": "lcb_project",
+  "manifest_csv": "generated_code/emc_alpha_olefin_builder/output/screen_lcb_project/manifest.csv",
+  "case_roots": [
+    {
+      "label": "screen_lcb_project",
+      "path": "generated_code/emc_alpha_olefin_builder/output/screen_lcb_project"
+    }
+  ],
+  "bridge_roots": [
+    "generated_code/emc_alpha_olefin_builder/output/lcb_project_bridge"
+  ],
+  "integrated_root": "generated_code/md_analysis/output/lcb_project_integrated",
+  "runtime_output_dir": "generated_code/md_analysis/output/lcb_project_runtime_dashboard",
+  "supervisor_output_dir": "generated_code/md_analysis/output/lcb_project_supervisor",
+  "emc_output_dir": "generated_code/md_analysis/output/lcb_project_emc_orchestrator",
+  "remote_md_roots": {
+    "new": [
+      "${PELCB100_REMOTE_HOME}/lcb_manual_runs"
+    ],
+    "newnew": [
+      "${PELCB100_REMOTE_ROOT}/lcb_manual_runs"
+    ]
+  },
+  "old_server_postprocess_root": "${PELCB100_REMOTE_ROOT}/lcb_project_postprocess",
+  "old_server_input_root": "${PELCB100_REMOTE_ROOT}/lcb_project_postprocess/input",
+  "old_server": "${REMOTE_USER}@${REMOTE_HOST}",
+  "old_emc_root": "${PELCB100_REMOTE_ROOT}/tools/emc",
+  "emc_remote_root": "${PELCB100_REMOTE_ROOT}/lz_project_runs/emc_alpha_olefin_builder",
+  "new_server": "${REMOTE_USER}@${REMOTE_HOST}",
+  "newnew_server": "${REMOTE_USER}@${REMOTE_HOST}",
+  "new_gmx": "gmx",
+  "newnew_gmx": "gmx"
+}

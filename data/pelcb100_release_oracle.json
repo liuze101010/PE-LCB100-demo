@@ -1,0 +1,15 @@
+{
+  "schema_version": "pelcb100.frozen_release_oracle.v1",
+  "source_plan_sha256": "2d3b94de4ddc6e5127a341b3f05fd5176c59b96ffb05a5312c95e04209a3b128",
+  "expected_counts": {"pass": 92, "review": 8},
+  "review_case_ids": [
+    "lcb_pe_001_bp01_bc005_pdmid_c101",
+    "lcb_pe_036_bp01_bc003_pdend_c101",
+    "lcb_pe_037_bp02_bc003_pduni_c100",
+    "lcb_pe_043_bp02_bc005_pdclus_c100",
+    "lcb_pe_044_bp02_bc008_pdclus_c100",
+    "lcb_pe_062_bp03_bc008_pdtri_c100",
+    "lcb_pe_067_bp04_bc008_pduni_c100",
+    "lcb_pe_075_bp04_bc008_pdclus_c100"
+  ]
+}

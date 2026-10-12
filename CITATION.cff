@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the associated PE-LCB100 article and this archived release."
+title: "PE-LCB100 Polymer-Agent Demo"
+type: software
+version: 1.2.0
+date-released: 2026-10-12
+license: MIT
+repository-code: "https://github.com/liuze101010/PE-LCB100-demo"
+abstract: "A reproducible closed-loop demo with a frozen 97-case, 291-vote audit ledger and 100-case terminal release state."

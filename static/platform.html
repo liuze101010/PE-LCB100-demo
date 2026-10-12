@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PE-LCB Research Platform</title>
+  <link rel="stylesheet" href="/assets/platform.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">
+      <span class="brand-mark">PE</span>
+      <span>
+        <strong>PE-LCB Research Platform</strong>
+        <small>聚合物模拟工作台</small>
+      </span>
+    </a>
+    <nav>
+      <a href="/demo" aria-label="冻结演示">查看示例</a>
+      <a href="/auto">使用帮助</a>
+      <button id="logout" class="ghost" hidden>退出</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="login-card" class="login-card card">
+      <h1>登录实验室工作台</h1>
+      <p>登录后按页面步骤操作即可。</p>
+      <form id="login-form" class="stack">
+        <label>账号<input name="username" autocomplete="username" required></label>
+        <label>密码<input name="password" type="password" autocomplete="current-password" minlength="12" required></label>
+        <button type="submit">登录</button>
+      </form>
+      <p id="login-error" class="error"></p>
+    </section>
+
+    <section id="workspace" hidden>
+      <section class="hero">
+        <div>
+          <h1>从一句话开始聚合物模拟</h1>
+          <p>连接服务器，填写四个密钥，输入研究需求。其余步骤自动完成。</p>
+        </div>
+        <aside class="status-card">
+          <div id="identity"></div>
+          <div id="health-pill" class="pill muted">正在检查执行器</div>
+        </aside>
+      </section>
+
+      <section id="onboarding-progress" hidden></section>
+
+      <section class="tabs">
+        <button data-panel="clusters-panel" class="active">1 连接服务器</button>
+        <button data-panel="model-keys-panel">2 填写密钥</button>
+        <button data-panel="projects-panel">3 设计并提交</button>
+        <button data-panel="runs-panel">4 查看进度</button>
+        <button data-panel="reviews-panel">5 下载结果</button>
+      </section>
+
+      <section id="clusters-panel" class="panel card">
+        <div class="section-head">
+          <div><h2>连接服务器</h2></div>
+          <button id="refresh-clusters" class="secondary">刷新</button>
+        </div>
+        <p class="hint">粘贴平时登录服务器使用的 SSH 命令。其余信息通常会自动填写。</p>
+        <div id="cluster-list" class="list"></div>
+        <details class="composer" open>
+          <summary>添加服务器</summary>
+          <form id="cluster-form" class="form-grid">
+            <label class="wide">SSH 登录命令<input id="quick-ssh" name="quick_ssh" placeholder="例如：ssh username@server.edu" required></label>
+            <label class="wide">服务器密码<input name="ssh_password_once" type="password" autocomplete="current-password" placeholder="已配置免密 SSH 时可留空；不会保存"></label>
+            <input name="partition" type="hidden" value="auto">
+            <input name="remote_root" type="hidden">
+            <label class="managed-science-option wide checkbox-line"><input name="upstream_terms_accepted" type="checkbox" required> 允许自动准备所需软件。</label>
+            <details class="advanced-settings wide">
+              <summary>连接有问题时再打开</summary>
+              <div class="form-grid compact nested-grid">
+                <label>连接名称<input name="name" value="lab-gpu" required></label>
+                <label>主机<input name="host" placeholder="自动填写"></label>
+                <label>集群用户名<input name="remote_username" placeholder="自动填写"></label>
+                <label>主机指纹<input name="host_key_sha256" placeholder="自动读取"></label>
+                <div class="button-row wide"><button type="button" id="scan-host-key" class="secondary">读取主机指纹</button></div>
+                <label>SSH 端口<input name="port" type="number" value="22" required></label>
+                <label>Slurm 账户<input name="account" placeholder="可留空"></label>
+                <label>GROMACS 命令<input name="gromacs_command" value="gmx" required></label>
+                <label>EMC 命令<input name="emc_command" value="emc" required></label>
+                <label>Python 命令<input name="python_command" value="python3" required></label>
+                <label>远程 runner<input name="runner_command" value="polymer-agent-remote" required></label>
+                <label>环境来源
+                  <select name="environment_mode" id="environment-mode">
+                    <option value="module">集群 module / 现有命令</option>
+                    <option value="container">Apptainer / Singularity 镜像</option>
+                  </select>
+                </label>
+                <label>科学管线命令<input name="pipeline_command" value="pelcb-pipeline-core" required></label>
+                <label>科学软件来源
+                  <select name="science_install_mode" id="science-install-mode">
+                    <option value="managed">自动安装论文固定版本</option>
+                    <option value="existing">复用现有 module/container</option>
+                  </select>
+                </label>
+                <label class="managed-science-option">GROMACS 加速方式
+                  <select name="gromacs_acceleration">
+                    <option value="auto">自动探测 CUDA，否则 CPU</option>
+                    <option value="cuda">CUDA（要求站点提供 nvcc/驱动）</option>
+                    <option value="cpu">CPU</option>
+                  </select>
+                </label>
+                <label class="container-option" hidden>容器运行时
+                  <select name="container_runtime">
+                    <option value="apptainer">apptainer</option>
+                    <option value="singularity">singularity</option>
+                  </select>
+                </label>
+                <label class="container-option wide" hidden>容器镜像绝对路径<input name="container_image" placeholder="/shared/containers/pelcb.sif"></label>
+                <label>最大 CPU<input name="max_cpus" type="number" value="32" min="1" required></label>
+                <label>最大 GPU<input name="max_gpus" type="number" value="4" min="0" required></label>
+                <label>最长 walltime/h<input name="max_walltime_hours" type="number" value="168" min="1" required></label>
+                <label class="wide">module 初始化<textarea name="module_init" rows="3" placeholder="每行一个，例如：module load gromacs/2024&#10;module load emc&#10;module load pelcb-pipeline"></textarea></label>
+              </div>
+            </details>
+            <button type="submit">连接并自动准备</button>
+          </form>
+        </details>
+      </section>
+
+      <section id="model-keys-panel" class="panel card" hidden>
+        <div class="section-head">
+          <div><h2>填写模型密钥</h2></div>
+          <button id="refresh-model-keys" class="secondary">刷新</button>
+        </div>
+        <p class="hint">填入四个 API key 并保存。已保存的密钥不会再次显示。若启动前已在环境变量或 <code>.env</code> 中提供对应 key（OPENAI/DEEPSEEK/DASHSCOPE/ZHIPUAI_API_KEY），启动时会自动载入，无需再次填写，仅需为下方仍为“未配置”的项补齐。</p>
+        <div id="model-key-status" class="list"></div>
+        <form id="model-key-form" class="form-grid">
+          <label class="wide">GPT-5.5 / OpenAI API key<input name="openai_api_key" type="password" autocomplete="off" placeholder="粘贴你的 OpenAI API key"></label>
+          <label>DeepSeek API key<input name="deepseek_api_key" type="password" autocomplete="off"></label>
+          <label>Qwen / DashScope API key<input name="dashscope_api_key" type="password" autocomplete="off"></label>
+          <label>GLM / ZhipuAI API key<input name="zhipuai_api_key" type="password" autocomplete="off"></label>
+          <div class="button-row wide"><button type="submit">保存模型密钥</button></div>
+          <details class="advanced-settings wide"><summary>管理已保存密钥</summary><button type="button" id="clear-model-keys" class="danger">清空密钥</button></details>
+        </form>
+      </section>
+
+      <section id="projects-panel" class="panel card" hidden>
+        <div class="section-head">
+          <div><h2>输入需求并提交</h2></div>
+          <button id="refresh-projects" class="secondary">刷新</button>
+        </div>
+        <div id="design-readiness" class="notice"></div>
+        <p class="hint">先生成候选结构，确认无误后提交计算。</p>
+        <div id="project-list" class="list"></div>
+        <details class="composer" open>
+          <summary>新建项目</summary>
+          <form id="project-form" class="stack">
+            <details class="advanced-settings">
+              <summary>新聚合物自动配置（可选）</summary>
+              <div class="form-grid compact nested-grid">
+                <label class="wide">重复单元结构<input name="repeat_unit_smiles" placeholder="例如 *CCO*"></label>
+                <div class="button-row wide"><button type="button" id="preview-polymer-setup" class="secondary">自动选择构建方法和力场</button></div>
+              </div>
+              <div id="polymer-setup-result" class="notice compact-notice" hidden></div>
+            </details>
+            <label>项目名称<input name="name" value="PE-LCB trial" required></label>
+            <label>自然语言目标<textarea name="goal" rows="3" placeholder="研究 C100 支化聚乙烯的密度、结构和动力学"></textarea></label>
+            <div class="button-row"><button type="button" id="draft-design" class="secondary" aria-label="调用 GPT-5.5 设计 n 个候选">生成候选结构</button></div>
+            <details class="advanced-settings"><summary>从 CSV 导入</summary><label class="file-button">选择 CSV<input id="candidate-csv" type="file" accept=".csv,text/csv" hidden></label></details>
+            <p class="hint">例：设计 50 个约 C100 的支化聚乙烯，覆盖不同支化点、支链长度和放置方式。</p>
+            <div id="structure-preview" class="structure-preview"></div>
+            <details class="advanced-settings"><summary>查看候选参数</summary><textarea name="candidates" rows="10" placeholder="生成候选结构后自动填入" required></textarea></details>
+            <details class="advanced-settings">
+              <summary>计算设置（通常不用改）</summary>
+              <div class="form-grid compact nested-grid">
+                <label>温度 K<input name="temperature_k" type="number" value="400" step="1"></label>
+                <label>压力 atm<input name="pressure_atm" type="number" value="1" step="0.1"></label>
+                <label>链数<input name="chain_count" type="number" value="150"></label>
+                <label>初始生产时长 ns<input name="production_ns" type="number" value="400" max="400"></label>
+              </div>
+
+            </details>
+            <button type="submit">创建项目并提交计算</button>
+          </form>
+        </details>
+      </section>
+
+      <section id="runs-panel" class="panel card" hidden>
+        <div class="section-head">
+          <div><h2>查看计算进度</h2></div>
+          <button id="refresh-runs" class="secondary">刷新</button>
+        </div>
+
+        <div class="notice local-acceptance-card">
+          <div>
+            <strong>先测试一下</strong>
+            <span>运行一个短任务，确认安装正常。</span>
+          </div>
+          <button id="start-local-acceptance">开始测试</button>
+        </div>
+        <div id="local-acceptance-status" class="list small-list"></div>
+        <div id="run-list" class="list"></div>
+        <div id="event-viewer" class="event-viewer" hidden></div>
+      </section>
+
+      <section id="reviews-panel" class="panel card" hidden>
+        <div class="section-head">
+          <div><h2>查看并下载结果</h2></div>
+          <button id="refresh-reviews" class="secondary">刷新</button>
+        </div>
+        <div class="split">
+          <div>
+            <h3>需要查看的结果</h3>
+            <div id="review-list" class="list"></div>
+          </div>
+          <div>
+            <h3>结果文件</h3>
+            <div id="release-project-list" class="list"></div>
+            <div id="release-list" class="list small-list"></div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <div id="flash" class="flash" role="status" aria-live="polite"></div>
+  <script src="/assets/platform.js" defer></script>
+</body>
+</html>

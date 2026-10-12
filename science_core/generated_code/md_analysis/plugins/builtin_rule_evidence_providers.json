@@ -1,0 +1,29 @@
+{
+  "schema_version": "rule_evidence_provider_plugins.v1",
+  "rule_evidence_providers": [
+    {
+      "provider_id": "radonpy_pi1070",
+      "module": "rule_evidence_discovery",
+      "class": "RadonPyPi1070Provider",
+      "replace": true
+    },
+    {
+      "provider_id": "htpmd_public_index",
+      "module": "rule_evidence_discovery",
+      "class": "HtpmdPublicIndexProvider",
+      "replace": true
+    },
+    {
+      "provider_id": "polyinfo_export",
+      "module": "rule_evidence_discovery",
+      "class": "PolyInfoExportProvider",
+      "replace": true
+    },
+    {
+      "provider_id": "registered_structured_seed_provider",
+      "module": "rule_evidence_discovery",
+      "class": "StructuredSeedProvider",
+      "replace": true
+    }
+  ]
+}

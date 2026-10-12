@@ -1,0 +1,105 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        INSTALL_EXTRAS: "[platform,science]"
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      POLYMER_AGENT_DATABASE_URL: postgresql+psycopg://polymer:${POSTGRES_PASSWORD}@postgres:5432/polymer
+      POLYMER_AGENT_REDIS_URL: redis://redis:6379/0
+      POLYMER_AGENT_DEMO_MODE: replay
+      POLYMER_AGENT_APP_MODE: platform
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - platform_runtime:/opt/polymer-agent/.runtime
+
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        INSTALL_EXTRAS: "[platform,science]"
+    restart: unless-stopped
+    command: ["python", "-m", "polymer_agent_demo.control_plane.worker"]
+    env_file: .env
+    environment:
+      POLYMER_AGENT_DATABASE_URL: postgresql+psycopg://polymer:${POSTGRES_PASSWORD}@postgres:5432/polymer
+      POLYMER_AGENT_REDIS_URL: redis://redis:6379/0
+      POLYMER_AGENT_APP_MODE: platform
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  reconciler:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        INSTALL_EXTRAS: "[platform,science]"
+    restart: unless-stopped
+    command: ["python", "-m", "polymer_agent_demo.control_plane.reconciler"]
+    env_file: .env
+    environment:
+      POLYMER_AGENT_DATABASE_URL: postgresql+psycopg://polymer:${POSTGRES_PASSWORD}@postgres:5432/polymer
+      POLYMER_AGENT_REDIS_URL: redis://redis:6379/0
+      POLYMER_AGENT_APP_MODE: platform
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: polymer
+      POSTGRES_USER: polymer
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U polymer -d polymer"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    command: ["redis-server", "--appendonly", "yes"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    volumes:
+      - redis_data:/data
+
+  proxy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - api
+
+volumes:
+  platform_runtime:
+  postgres_data:
+  redis_data:
+  caddy_data:
+  caddy_config:

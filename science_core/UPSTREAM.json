@@ -1,0 +1,791 @@
+{
+  "schema_version": "polymer_agent.science_core_upstream.v1",
+  "baseline": "PE-LCB100-code@2fdaf77 (2026-08-10)",
+  "review_code_match": "all selected Python/source files match; MCP reading guide differs",
+  "files": [
+    {
+      "path": "generated_code/emc_alpha_olefin_builder/batch_rebuild_bridge_fixed.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "1a99981252ad043e8c4d2bdcaab23a03ab8109346d7302fb68ca6b99f167e448"
+    },
+    {
+      "path": "generated_code/emc_alpha_olefin_builder/build_alpha_olefin_library.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "366bc1559a3097fc408cc23b2d1d7857f9220a27f69bee5d90bb71f40bda5c95"
+    },
+    {
+      "path": "generated_code/emc_alpha_olefin_builder/emc_to_gromacs.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "9734322f97132803f8fb86c5ebb04e035c435f30058d0a0c6cc2736d1bc7cf56"
+    },
+    {
+      "path": "generated_code/emc_alpha_olefin_builder/prepare_emc_production_build.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "035d083d4f22229a4779f073ab7a5c8cf4fafcc1baa33dce165b133e0b7b264e"
+    },
+    {
+      "path": "generated_code/emc_alpha_olefin_builder/submit_emc_production_build.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "ffd5de01ed24f0b0c0bc5d7181097d3216a6296f8bb992fb7895ed1b90b0de36"
+    },
+    {
+      "path": "generated_code/emc_alpha_olefin_builder/submit_emc_production_build_array.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "479647101b5ac4a25fefb591621d6269f1626742556df820c433e0fee3e03016"
+    },
+    {
+      "path": "generated_code/emc_alpha_olefin_builder/submit_remote_slurm_package.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "b74d0d3948525b5a32c1fe7ebddfeca6eb7f0975ffb47891b2c6f496a5921976"
+    },
+    {
+      "path": "generated_code/emc_alpha_olefin_builder/submit_slurm_batch_dynamic.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "6daf377301abdfb012b63f8348176fdc4b3b7310349b8989c8c7faec190e73bb"
+    },
+    {
+      "path": "generated_code/lcb_md_pipeline/lcb_md_submit.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "5b6bf4bdc56391f1a846e0b9e719531c908aae2096ca4fa67cb664c3f8ee15af"
+    },
+    {
+      "path": "generated_code/lcb_md_pipeline/manual_launch_helper.sh",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "a110e0f288c8db337879b55e0996ebbbb74212dd17238ae1976e13db6aa78b71"
+    },
+    {
+      "path": "generated_code/lcb_md_pipeline/manual_template.sh",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "9b59e8982b8857a4f762673f5db0df1b8254f75cc78d85a64f874c1e03c7efc2"
+    },
+    {
+      "path": "generated_code/lcb_md_pipeline/mdp/nvt_prod.mdp",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "41ed0941c112493473e02f49581da7aaf1dd79d3cdb540224192422c6184a3df"
+    },
+    {
+      "path": "generated_code/lcb_md_pipeline/mdp/pr.mdp",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "cc93606526f76eace97b0ba014ec411cf0b3457ee18427fe565e445fb75cd93b"
+    },
+    {
+      "path": "generated_code/lcb_md_pipeline/mdp/rlx.mdp",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "14022ee782cd84034a821df464d74a71c7a64289641f486cf63c048b370f9e86"
+    },
+    {
+      "path": "generated_code/lcb_md_pipeline/mdp/steep.mdp",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "1f703652b14e7d741bb271573128ecbbd53cd286c1c218b359075116c23e4296"
+    },
+    {
+      "path": "generated_code/lcb_md_pipeline/retrofit_resume.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "3b5312c2a7d207f41f12437f53d4b689112d2b20fe2d13482889a59256c38337"
+    },
+    {
+      "path": "generated_code/lcb_md_pipeline/slurm_template.sh",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "feee41a4942bb4974f2c5907bb6da32ba8d1d4ff3cac1c21bb17f1c9386b341c"
+    },
+    {
+      "path": "generated_code/md_analysis/__init__.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "1c6d24fa6808a036da49e9d9ed6070354a7934c9c87348702de2fe037b4fb094"
+    },
+    {
+      "path": "generated_code/md_analysis/agentic/__init__.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "00e072acc25675958a63f92add5f07cd0e785ac2d4339e4dc41fca4f236871b0"
+    },
+    {
+      "path": "generated_code/md_analysis/agentic/CLIENT_SETUP.md",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "74f1548c227a85e5fd82df0c982e5359d98272092bf2c3f08c218694e542af9d"
+    },
+    {
+      "path": "generated_code/md_analysis/agentic/prompts/anomaly_audit.md",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "aa8c5742af78b3bac3273ed6af6ef3f0ecd43539d6a7a031aea59f1d5d02a67b"
+    },
+    {
+      "path": "generated_code/md_analysis/agentic/prompts/anomaly_blind.md",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "13018fd5f11232ba0d8cd65a739a3b229425bfee291c6f7e7306f6ee553952a9"
+    },
+    {
+      "path": "generated_code/md_analysis/agentic/prompts/equilibration_audit.md",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "2bbefe9a82bebacf5b93cf0d152af70cd148adb3c3b4d9dc64286186469bc1bc"
+    },
+    {
+      "path": "generated_code/md_analysis/agentic/prompts/equilibration_blind.md",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "fb0262252c317dc8dd577c189d160780d8cc68e446e187fa8d0064cfb91aa640"
+    },
+    {
+      "path": "generated_code/md_analysis/agentic/prompts/fit_quality_audit.md",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "73b28bdc74083040ca175baa2a018a0b653831f8dcaf833410bb969ae7fca56c"
+    },
+    {
+      "path": "generated_code/md_analysis/agentic/prompts/fit_quality_blind.md",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "9be49072a930b1221b47705c851e5c65e0842382ae604f56fd6fffecc190c210"
+    },
+    {
+      "path": "generated_code/md_analysis/agentic/schemas/__init__.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "781431d72ad77b102e3e87441e98f5d64187589e05dc07cf862aca1759117b98"
+    },
+    {
+      "path": "generated_code/md_analysis/agentic/schemas/judgment.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "3e6a8c71a177fb6e252d3ab49728c7435052f5f9fb77d6aac1f35eb7c1cc59f2"
+    },
+    {
+      "path": "generated_code/md_analysis/agentic/tri_llm_judge.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "7b6cd6d26d821b5b4fb64ba239910c6652dcb9e5f451a1004580e3f212ace87e"
+    },
+    {
+      "path": "generated_code/md_analysis/aggregate.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "d3ba547cdb6a0dde43a3883846f0aecb8cbf3174a33a7ed104a017689076307f"
+    },
+    {
+      "path": "generated_code/md_analysis/aggregate_shape_tensor.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "e4f99c47e8ed2b44684947b2101cec6ca5504745f2d7780e003c5f08341eda4e"
+    },
+    {
+      "path": "generated_code/md_analysis/analyze_dynamics.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "d294951185f8ec486a650b397cb6c28cde4a885ade2744782032478701cc7ae3"
+    },
+    {
+      "path": "generated_code/md_analysis/analyze_intrachain_dynamics.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "54babb2b2505680dd051b875480023c007ccc845998a07daff79168138d9026e"
+    },
+    {
+      "path": "generated_code/md_analysis/analyze_nvt_prod.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "156d1a04cb94d781a770b09ec7bf1815da7fb10f4e0ae58e3cae04dd630d7980"
+    },
+    {
+      "path": "generated_code/md_analysis/analyze_trajectory.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "67d230b712d18d1e9234a6a0c21c9cf0c8ab3795695c30bb9b206719c41219fd"
+    },
+    {
+      "path": "generated_code/md_analysis/backfill_clean_intrachain_g3.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "34ef32ffa186514d4bc66930ed0303e6a2328c5135320619e15526d4de1b238b"
+    },
+    {
+      "path": "generated_code/md_analysis/build_lcb300_overview.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "f43967e7cd67de335f9083843c35bc2852d734ce7e408c8beb6950706a5ed672"
+    },
+    {
+      "path": "generated_code/md_analysis/build_lcb_overview.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "98d82f694afd0e61cfff175c81b68f7d6bce2f8b4fc858105a62baee02379dce"
+    },
+    {
+      "path": "generated_code/md_analysis/build_radonpy_density_reference.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "b672d33e003a0cf3264fea3d273e1018e1b73f720b431bc88546a0404c9a5959"
+    },
+    {
+      "path": "generated_code/md_analysis/canonical_outputs.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "f11c7dbb7c0032841ff4cf4ba0b004df18d103240cfd6811bf73ad8866128953"
+    },
+    {
+      "path": "generated_code/md_analysis/case_labels.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "e69d2574a4fd42a45d12ce51e61b57b90d68407391379393a48c779cf1ff3210"
+    },
+    {
+      "path": "generated_code/md_analysis/common_xvg.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "754bfa92b481744cd95aadda5103dd23024398ca98e1d0178539d77a7294f6a1"
+    },
+    {
+      "path": "generated_code/md_analysis/compute_full_rdf_suite.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "3d12ed1d39381a65a9f3bab0b89df8386296ffd7bca5db5180736f643dcb893e"
+    },
+    {
+      "path": "generated_code/md_analysis/compute_interrdf_case.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "0e21e79273e3bb2084367c6587db5330829f5a89e3b94f5c5bb60215789f3304"
+    },
+    {
+      "path": "generated_code/md_analysis/compute_intra_nonbonded_rdf.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "9c75700cec63df18f62c9d295a44ba9226622346f8ba47e8b2905a0d45133a8b"
+    },
+    {
+      "path": "generated_code/md_analysis/compute_monomer_msd.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "3d0aaf769dbaf8bce4730bdf265558298555da9ee5bcccd070aa8ec20ac22955"
+    },
+    {
+      "path": "generated_code/md_analysis/compute_shape_tensor.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "226f295e47c3e4e7f4bc200e6fcbac9162b6504bfbaccef052077030337cc218"
+    },
+    {
+      "path": "generated_code/md_analysis/configs/pelcb100.json",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "6764b5a093282f4684e2f9d7a073c07c94ee5333f6bfe1ff8c2966a8ffd7cd7a"
+    },
+    {
+      "path": "generated_code/md_analysis/configs/pelcb100.public.json",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "6764b5a093282f4684e2f9d7a073c07c94ee5333f6bfe1ff8c2966a8ffd7cd7a"
+    },
+    {
+      "path": "generated_code/md_analysis/configs/template.local.json",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "336308c91cb6c25c26c0a6d57818cac9c1f1cc13d7d4526e3092793ed1ba84fa"
+    },
+    {
+      "path": "generated_code/md_analysis/configs/template.server.json",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "37bf57595ca06beb6ae576e9b5b296ab0615341ca24d724d86368ac45477adc0"
+    },
+    {
+      "path": "generated_code/md_analysis/data/experimental_density_reference_pack_v1.csv",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "45813fd1115d8b347afe36dec681a591ecabecee5a75b00fefa17dddce75957b"
+    },
+    {
+      "path": "generated_code/md_analysis/data/experimental_density_reference_pack_v1.json",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "97f2d408635be94672c6d460fc1f4b25dc08701dd4818bc9860fc246e858c1bb"
+    },
+    {
+      "path": "generated_code/md_analysis/data/pelcb100_radonpy_structure_matches_v1.csv",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "07f5783aeae1a39d31e7d93ec72fb90e673794364853573f92b563d9cb7f0cbb"
+    },
+    {
+      "path": "generated_code/md_analysis/data/pelcb100_radonpy_structure_matches_v1.json",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "ce71b6ffd6a3391e13186f3e1f76caf018c6b318184176fa3379b5f35925d25b"
+    },
+    {
+      "path": "generated_code/md_analysis/data/radonpy_density_reference_pack_v1.json",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "0c0e564f606e39b4bc74063222818897df9236f0a67cca0caf64c52dd0296705"
+    },
+    {
+      "path": "generated_code/md_analysis/data/radonpy_density_reference_records_v1.csv",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "d4476bf2dea0492f5ca58e4b180c59ad993f534ebe050b1e8255d9a45bf00f62"
+    },
+    {
+      "path": "generated_code/md_analysis/dataset_common.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "a674626b601b8dafe60b97e0259002736a9236e59d5f844e044e5cd72340ceff"
+    },
+    {
+      "path": "generated_code/md_analysis/diagnosis_candidate_registry.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "168c6fdc400055b1f5a40f8938ad34f9ad9bc35e9e9eab08d579c507bec04586"
+    },
+    {
+      "path": "generated_code/md_analysis/emc_builder_registry.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "e48a2d06b0719d5cbc5c83c9b66dbb039ea8d43769b960e8b87d35a38aa09c92"
+    },
+    {
+      "path": "generated_code/md_analysis/equilibration_check.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "d8750eaf735e2c235945f2c4c001eb85f571e3249841ad19d68a81acf4effdd3"
+    },
+    {
+      "path": "generated_code/md_analysis/experimental_density_structure_aware_comparison.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "c3485fdd896cb9fe7a9c0d08ae645fbead0d9f70aea41ee88ef9387ef552ec4d"
+    },
+    {
+      "path": "generated_code/md_analysis/experimental_density_validation.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "8038e442fcd15048ab7995b206a14657d8f006af84abf6febcf718c6d909ce8a"
+    },
+    {
+      "path": "generated_code/md_analysis/force_field_qualification.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "e144fc44603e08910360d998521273ef14e6df35ca7b944f49eebb15e56f0bf2"
+    },
+    {
+      "path": "generated_code/md_analysis/lcb300_emc_orchestrator.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "788fcd895df1d9b71a489f087d4bd767fefd196bcdef0cc56f1003c0f6e91c88"
+    },
+    {
+      "path": "generated_code/md_analysis/lcb300_orchestrator.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "050a088c5a6b266d242e738ad6cd5c2483143df7d2d2c43ea848940bd9e200cc"
+    },
+    {
+      "path": "generated_code/md_analysis/lcb300_postprocess_closure.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "0bfce8b0cfa758a0754b464560e1946c7b3959c58829a729988a51678027d59e"
+    },
+    {
+      "path": "generated_code/md_analysis/lcb300_runtime_dashboard.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "967c0908c3a44c1c7c604b773cda28269483873da54b3dc32b2f2abafaf797f3"
+    },
+    {
+      "path": "generated_code/md_analysis/lcb300_supervisor.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "553a95b80c4cf1d5388094096ed64bfa04d7066c564f3ff99eb2de222a90b889"
+    },
+    {
+      "path": "generated_code/md_analysis/lcb_doctor.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "b8a1eb701af754baa4af2d8fa8e1770270896dc5b5cda6b24e645ce077a3fae6"
+    },
+    {
+      "path": "generated_code/md_analysis/lcb_emc_orchestrator.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "fc37fd2a2dce1bffcb14e2e114e30e8ced19026d51c431cf2be2415f4c6dbb95"
+    },
+    {
+      "path": "generated_code/md_analysis/lcb_health_monitor.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "e6ccf151b805dd418436575a836384ecdf5bbe94b2cfebd4ec849623428fb6f6"
+    },
+    {
+      "path": "generated_code/md_analysis/lcb_orchestrator.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "80c7d8c569ad6872253987b3b4f8b24b74e748e1482115b981949aa2e769518a"
+    },
+    {
+      "path": "generated_code/md_analysis/lcb_postprocess_closure.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "d685c72b83620dcaedc60ab85fba154114bdd69d220affa04a3c95c73af78368"
+    },
+    {
+      "path": "generated_code/md_analysis/lcb_project_config.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "049e95a70e911efb0337c8e103836c90d203f3259955b6b518e4b89904ac8989"
+    },
+    {
+      "path": "generated_code/md_analysis/lcb_publication_assets.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "8219efdd58ec9eb0b89785699c2c9c1252b60267cdab8d98af53b500907a64ef"
+    },
+    {
+      "path": "generated_code/md_analysis/lcb_report.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "1fcd62a1cfec78b5adaab3003d799280cd99db38555d8dc32ca5d34f9203dd3c"
+    },
+    {
+      "path": "generated_code/md_analysis/lcb_runtime_dashboard.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "28d5390aa60c8fade159a1374a13a63935b206d8de3c15b9074ec79646451522"
+    },
+    {
+      "path": "generated_code/md_analysis/lcb_supervisor.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "ba36e8f49d9badcec01ed0c3930c4d074a8f236034d68c8c79d2c7116780ca10"
+    },
+    {
+      "path": "generated_code/md_analysis/mcp/pelcb100_cs_baseline_server.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "b088caa50e5fe1b7cd46427cdbcc7562510e9f2f34bfa61bc934c220e2df0c69"
+    },
+    {
+      "path": "generated_code/md_analysis/mcp/pelcb100_policy_free_replay_server.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "2f303dd36d2e6ebe11814ae68780dd7daab8884e740feaafdcabe85837e8ccbb"
+    },
+    {
+      "path": "generated_code/md_analysis/mcp/pelcb_mcp_emc_smoke.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "e8c150118b0813a509e2e4ec3946519a83cfd4dae4dc47396f8ecf920345339b"
+    },
+    {
+      "path": "generated_code/md_analysis/mcp/pelcb_mcp_server.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "f038cd4f9ece02af8452d586910337546140047e79ac0f13b3be09376faca546"
+    },
+    {
+      "path": "generated_code/md_analysis/mcp/polymer_input_llm_baseline_server.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "0c8db6c98f2ae1340ce5bea9f879c96b239cb85ac2e4bdd62a1f90402d30b938"
+    },
+    {
+      "path": "generated_code/md_analysis/mcp/README.md",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "f4d55804b472c2e48479db494203ca202a1ae4f3cb91f3db5ecb3e3224b774e0"
+    },
+    {
+      "path": "generated_code/md_analysis/o7_clean_closure.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "c9454daecff4dfb06d170d296fed7e9c88c2085dd1601908f62d155481a1b9a4"
+    },
+    {
+      "path": "generated_code/md_analysis/o7_clean_safe_retry.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "da347671f6964270998493c0afd2295a5290731a81637309989920f8683f8d1f"
+    },
+    {
+      "path": "generated_code/md_analysis/o7_clean_supervisor_queue.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "419421203e2e1f86be5377cfcc6b7cfdf1de99fef1e2c4469624039b69428f0c"
+    },
+    {
+      "path": "generated_code/md_analysis/pelcb100_control_queue.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "a03ae46efce44038d513a4ec7b1af85f6c6ac10c23d1d8c4f19797c185e999a5"
+    },
+    {
+      "path": "generated_code/md_analysis/pelcb100_cs_baseline_aggregate.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "eab4d2f1df01442bfab2ca26538e817419a426e15718c89735ec3f192e647064"
+    },
+    {
+      "path": "generated_code/md_analysis/pelcb100_cs_baseline_replay.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "0cd9bdd8fbec53da572f87d211bd15e6a0c4325fece3c0420755fd96911014a6"
+    },
+    {
+      "path": "generated_code/md_analysis/pelcb100_cs_baseline_runner.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "19402ffd86904fbba6ab602b4a16ef0ed7b56bf8763c5b60143d818bbf374506"
+    },
+    {
+      "path": "generated_code/md_analysis/pelcb100_paper_release_freeze.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "a11a4cc965e928ac0a40f7ed7b1e85d83fe521e126d42caf7911b4be0fa2c497"
+    },
+    {
+      "path": "generated_code/md_analysis/pelcb100_policy_free_aggregate.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "1a68ac38cb8789ba200061c4fd5b4b161d1b5283672a5aa8aa86f814e46fd9b6"
+    },
+    {
+      "path": "generated_code/md_analysis/pelcb100_policy_free_replay.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "2888d6b9dfa13bf99e676a0a70d459641f5ab8e4ed07ca6958b696983c0466b0"
+    },
+    {
+      "path": "generated_code/md_analysis/pelcb100_policy_free_runner.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "c1dfc1a7d659851484f12753ff6fbf3039fefd5f56e231403e9cb53e5fdbc295"
+    },
+    {
+      "path": "generated_code/md_analysis/pelcb100_preparation_real_build_validation.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "9d60cbb5e3e947e21355ed009d2fecbc5aecaee8fb7a66d4c9a4e2580fdd17dc"
+    },
+    {
+      "path": "generated_code/md_analysis/pelcb100_react_replay.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "d0fa4304d88120a12528429b2f1ff533b1cab8336b33f33c71049ab42de860df"
+    },
+    {
+      "path": "generated_code/md_analysis/pelcb_audit_diagnosis.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "a9f563f5ac0ebf02cdf4664e684a1ed8f9e562b257a1a8e679f9b80c1b7f72ac"
+    },
+    {
+      "path": "generated_code/md_analysis/pelcb_build_msd_window_overlay.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "a26beee23d85c73f35a14400d00bcad131b755ad0086ee943d1afddf38409861"
+    },
+    {
+      "path": "generated_code/md_analysis/pelcb_clean_nvt_extension.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "17f0c6dd6b189836d742efc5b25379a6a470cf36f7b59d767b22044267f1e327"
+    },
+    {
+      "path": "generated_code/md_analysis/pelcb_clean_overlay_regate.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "082958a0f236eb6f6b91ffd88087343135518c345b022498ba4638fc6d315837"
+    },
+    {
+      "path": "generated_code/md_analysis/pelcb_design_origin.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "756d72b15ce20e6b102e7228f1a1951772ed908268c8a36bdb531217270149cf"
+    },
+    {
+      "path": "generated_code/md_analysis/pelcb_msd_publication_gate.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "fbb4a3d58df7acbc0ae38106b1dc981949f954d695c6fcc713c3e47703f45b94"
+    },
+    {
+      "path": "generated_code/md_analysis/pelcb_msd_window_repair.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "a6e245d520c2f70d4d5056f41381b7b241b71b0061760c0b9b72d314e3a22f65"
+    },
+    {
+      "path": "generated_code/md_analysis/pelcb_packing_void.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "71eb731b93ede903b67f1a42fa8dfb74a06fee6a18849a8c81d200268db90e75"
+    },
+    {
+      "path": "generated_code/md_analysis/pelcb_repair_loop.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "c8eeae60a2611d7b6cbcd42a0dd6f18c956caeb5eaef55ab96f7ffd2fed8e496"
+    },
+    {
+      "path": "generated_code/md_analysis/pelcb_stop_passed_active.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "2babc88846a676c531ec78060802a1737f2c1080c2a1adbfd050ed3c474466f3"
+    },
+    {
+      "path": "generated_code/md_analysis/pelcb_strict_msd_refit.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "e3e09eb228fa81c7a53a324e4d018747919beb1e5151702df6d9b6d992ea0155"
+    },
+    {
+      "path": "generated_code/md_analysis/pelcb_warn_audit_llm.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "a29548fa93682348a272e5416b1b8bdb69cdeb7f6387dc5b228f863efc809f09"
+    },
+    {
+      "path": "generated_code/md_analysis/phase_state_profile.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "a8995e83608e25d707a03dbc1f12714aa7ee21deb26ebce53b83243e95f84734"
+    },
+    {
+      "path": "generated_code/md_analysis/plot_style.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "01b5c51a07f448dcdbfcb3aec9edbf77fc3628f9f2c87c12edac290c9a288945"
+    },
+    {
+      "path": "generated_code/md_analysis/plugin_manifest_loader.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "44c7f6b2226812bef1f51e174219d4fd3fc2393ff9ad9c7b9a486bea28b3d6af"
+    },
+    {
+      "path": "generated_code/md_analysis/plugins/builtin_emc_builder_adapters.json",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "0f560af9c29e09d87cd84609387791719ef94f38a43abab53296b98981b47b07"
+    },
+    {
+      "path": "generated_code/md_analysis/plugins/builtin_polymer_adapters.json",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "aba02da8fe4110b91a877a9ee754751cc6a653b7e29603ac30cb55f0105560e5"
+    },
+    {
+      "path": "generated_code/md_analysis/plugins/builtin_polymer_runtime_capabilities.json",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "a47cf7fb6691448f4f99a7006cdfd8fbf61e94f04764b6e48bda29f170d28006"
+    },
+    {
+      "path": "generated_code/md_analysis/plugins/builtin_rule_evidence_providers.json",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "12a9e510b02e08e25160cd7d263719fec779a39b97549127ef1f1ba2c0e52bb1"
+    },
+    {
+      "path": "generated_code/md_analysis/plugins/force_field_reference_substances.json",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "c0caf1ef6c94476b1d6f09824bea22641ca80d84833d74f5801d596dc0cdc61f"
+    },
+    {
+      "path": "generated_code/md_analysis/plugins/pelcb100_design_source_catalog.json",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "19c6f648ea416879aa60badd0b32d020c03d54cba7a2c42816bb975bebf95600"
+    },
+    {
+      "path": "generated_code/md_analysis/polymer_builder_dispatch.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "fc6a1e27a35d9e52e58425a391a3d6324253768a137f903fbfc5918594bed15b"
+    },
+    {
+      "path": "generated_code/md_analysis/polymer_design_validator.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "ab8a3a8828a1aef176f20875a5226796d36b5e7a79d080b220bff23e9e2aa637"
+    },
+    {
+      "path": "generated_code/md_analysis/polymer_input_llm_baseline_runner.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "93e0d118cd0b280b8365822f476e39a3ff893fc4b7750e90626c26639e25788d"
+    },
+    {
+      "path": "generated_code/md_analysis/polymer_input_taxonomy_benchmark.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "9faf38a4602775325e53d3d4e593d9671dca5bd67e781c3d80dac38431ee144c"
+    },
+    {
+      "path": "generated_code/md_analysis/polymer_qc_rules.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "3b1c1fde0f21b3d62a648839449c46933f35a019d219671f4427f05ea03d6290"
+    },
+    {
+      "path": "generated_code/md_analysis/polymer_reference_graph_materialization.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "0171cfbe1f1826c19d4e0d234bbc71a95e6291e3949ef4cb7d0a1fdbf1f6d311"
+    },
+    {
+      "path": "generated_code/md_analysis/polymer_runtime_registry.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "678a3dd790e2cc254cec9d809afbaa356c48a300f76e5c70f5903e61cf8cdca3"
+    },
+    {
+      "path": "generated_code/md_analysis/polymer_template_builder.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "e895009103fc00f49b438029bae89b66054f0eec7b2ba7db42521096c9196386"
+    },
+    {
+      "path": "generated_code/md_analysis/radonpy_density_screening.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "36333b5d72b3b65dac5c74425cc6a2c14ad7359a8567879a7c1b8d612caed518"
+    },
+    {
+      "path": "generated_code/md_analysis/rebuild_canonical_aggregates.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "79af5606a8433f86c3e0ae96af576169ab5e9b843131c6bea04f62c7d7822d38"
+    },
+    {
+      "path": "generated_code/md_analysis/result_confidence.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "bc06a9d999064f59101fe57d997a091d0ad39113b7cd0b50f97403ab27145fc4"
+    },
+    {
+      "path": "generated_code/md_analysis/rule_evidence_discovery.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "8bb133b77a512aedaf1b5df80e96f8805223ad1ab087d92c10357f25ad949d60"
+    },
+    {
+      "path": "generated_code/md_analysis/rule_profile_registry.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "e56f283d55ade535c91cd6815753da900d48202adff76efae51c5ca544e6d5cb"
+    },
+    {
+      "path": "generated_code/md_analysis/run_rg_polystat.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "a23a787332df65cc79e065d4022934077eb266071e42b1c5c89dba78675d5f76"
+    },
+    {
+      "path": "generated_code/md_analysis/structure_similarity_transfer.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "b3d48ced4c8a5d613790f75bac1914f491add66baa4bd70b2b8c8308cf2f8dd2"
+    },
+    {
+      "path": "generated_code/md_analysis/tools/normalize_intrachain_pair_distribution.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "0bbf5310901bc9844b891d618a64dbf080a6364c0e597f76d546d77404d19d2e"
+    },
+    {
+      "path": "generated_code/md_analysis/trajectory_helpers.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "161676b70753deb81886082e2d8bc17443d0251675bbf83388ebeb310373ea51"
+    },
+    {
+      "path": "generated_code/md_analysis/units.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "86a6bc7a062001bac161005fb3f966940312fa2623ba828f7818b97f42d45584"
+    },
+    {
+      "path": "generated_code/md_analysis/validate_radonpy_density_regression.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "d96b2f9024626e59b5ad0aa66183ec9211313b87194a268f80bb7e3b86e16c7e"
+    },
+    {
+      "path": "generated_code/md_analysis/viscosity_einstein.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "c0cf0ff993566a7d11c266388ba466131db952ee28267017cafe76c231a9112c"
+    },
+    {
+      "path": "generated_code/md_analysis/zotero_rag_design_prior.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "a138a51c71188cf4da136eb7b847ed016d3c2b6885c793105bb5b23e3405365b"
+    },
+    {
+      "path": "examples/minimal_validation.py",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "1eb1766935c32e58b8c577c1060e297bef0eb176a656f481d3b9055361d60b05"
+    },
+    {
+      "path": "LICENSE",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "014897fba0e2e5f2a172cc81b2a23570d7af4eb9c2254f63704a6fd99837b21d"
+    },
+    {
+      "path": "requirements.txt",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "16dec897e1ab3ce428dbc3c16fa30b8b4e4acd8506e02cecbfe2a0b7364f6635"
+    },
+    {
+      "path": "requirements-lock.txt",
+      "source": "Validating_code_review_20260910/01_code",
+      "upstream_sha256": "f7290fd4fdd1fd059c0ac9664e8eabe50871955b72f9c0679cd37afead5a3915"
+    },
+    {
+      "path": "generated_code/lcb_md_pipeline/run_real_smoke.py",
+      "source": "PE-LCB100-code@2fdaf77",
+      "upstream_sha256": "f58258305cdd6fffbea4e53aa690e8840330f2b662d8e2cfffc15194de0d0f8f"
+    },
+    {
+      "path": "generated_code/emc_alpha_olefin_builder/output/lcb100_bridge_fixed_20260424/lcb01_star3_b1_l05_c101/lcb01_star3_b1_l05_c101.gro",
+      "source": "PE-LCB100-demo tracked acceptance_fixture",
+      "upstream_sha256": "608595a2ad5f68082f111791d07e1d08c1f593c7fc33b09e419119ac77051a21"
+    },
+    {
+      "path": "generated_code/emc_alpha_olefin_builder/output/lcb100_bridge_fixed_20260424/lcb01_star3_b1_l05_c101/lcb01_star3_b1_l05_c101_polymer.itp",
+      "source": "PE-LCB100-demo tracked acceptance_fixture",
+      "upstream_sha256": "bc20c6347f080c8a7a98a1e6e216b8e24b24b2895e8d7d00977e0c0727c03875"
+    },
+    {
+      "path": "generated_code/emc_alpha_olefin_builder/output/lcb100_bridge_fixed_20260424/lcb01_star3_b1_l05_c101/topol.top",
+      "source": "PE-LCB100-demo tracked acceptance_fixture",
+      "upstream_sha256": "42564f0e032ffb06c3e763d11247a8eef57d6dd422f1a1d49ae68e59e5492c48"
+    },
+    {
+      "path": "generated_code/emc_alpha_olefin_builder/output/screen_pelcb100/manifest.json",
+      "source": "PE-LCB100-demo tracked benchmark molecular inputs",
+      "upstream_sha256": "f3c99895b6e565b0116e30a5f14d9f54b49b0acc5c0187686ea8d4c855e3686d"
+    }
+  ],
+  "adaptations": [
+    {
+      "path": "generated_code/md_analysis/configs/*.json",
+      "reason": "Replace machine/account defaults with operator-supplied placeholders; use GROMACS 2024.4 execution profiles."
+    },
+    {
+      "path": "generated_code/md_analysis/configs/lcb300.json",
+      "reason": "Portable legacy default config alias for original shared entry points."
+    },
+    {
+      "path": "generated_code/md_analysis/lcb_project_config.py",
+      "reason": "Expand user-supplied local environment paths."
+    },
+    {
+      "path": "generated_code/lcb_md_pipeline/run_real_smoke.py",
+      "reason": "Require an explicit remote host and use an operator-supplied remote root."
+    },
+    {
+      "path": "generated_code/md_analysis/polymer_design_validator.py",
+      "reason": "Carry repeat_unit/monomer input_mode through the original linear adapter; check repeat-unit connection points and connectivity."
+    },
+    {
+      "paths": [
+        "generated_code/md_analysis/lcb300_orchestrator.py",
+        "generated_code/md_analysis/lcb300_runtime_dashboard.py",
+        "generated_code/md_analysis/lcb300_supervisor.py",
+        "generated_code/md_analysis/o7_clean_closure.py",
+        "generated_code/md_analysis/o7_clean_safe_retry.py",
+        "generated_code/md_analysis/o7_clean_supervisor_queue.py",
+        "generated_code/md_analysis/pelcb_clean_nvt_extension.py",
+        "generated_code/md_analysis/pelcb_repair_loop.py"
+      ],
+      "reason": "Replace retained account-name host defaults with operator-supplied REMOTE_USER placeholders."
+    },
+    {
+      "path": "generated_code/md_analysis/lcb300_postprocess_closure.py",
+      "reason": "Preserve a shell environment placeholder literally inside the published Python f-string."
+    }
+  ]
+}

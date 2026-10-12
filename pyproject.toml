@@ -1,0 +1,77 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "polymer-agent-demo"
+version = "1.2.0"
+description = "Reproducible PE-LCB100 closed-loop Polymer-Agent demo"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {file = "LICENSE"}
+dependencies = [
+  "fastapi>=0.115,<1",
+  "uvicorn[standard]>=0.30,<1",
+  "pydantic>=2.9,<3",
+]
+
+[project.optional-dependencies]
+platform = [
+  "sqlalchemy>=2.0,<3",
+  "psycopg[binary]>=3.2,<4",
+  "redis>=5,<6",
+  "rq>=2,<3",
+  "paramiko>=3.5,<4",
+  "cryptography>=43,<47",
+  "python-multipart>=0.0.18,<1",
+  "openai>=1.60,<3",
+  "PyYAML>=6,<7",
+  "httpx>=0.27,<1",
+]
+science = [
+  "numpy>=1.26,<3",
+  "pandas>=2.2,<4",
+  "PyYAML>=6,<7",
+  "jsonschema>=4.23,<5",
+  "mcp>=1.20,<2",
+  "rdkit>=2025.3,<2027",
+  "MDAnalysis>=2.9,<3",
+  "networkx>=3,<4",
+  "scipy>=1.12,<2",
+  "matplotlib>=3.8,<4",
+  "openai>=1.60,<3",
+  "anthropic>=0.45,<1",
+]
+dev = ["pytest>=8,<9", "httpx>=0.27,<1", "build>=1.2,<2", "setuptools>=75", "wheel"]
+
+[tool.setuptools]
+package-dir = {polymer_agent_demo = "."}
+packages = [
+  "polymer_agent_demo",
+  "polymer_agent_demo.control_plane",
+  "polymer_agent_demo.deploy",
+  "polymer_agent_demo.scripts",
+]
+include-package-data = true
+
+[tool.setuptools.package-data]
+polymer_agent_demo = [
+  "data/*.json",
+  "static/*.html",
+  "static/*.css",
+  "static/*.js",
+  "deploy/*.zip",
+  "deploy/*.sh",
+  "deploy/Caddyfile",
+  "science_core/**/*",
+]
+
+[tool.setuptools.exclude-package-data]
+polymer_agent_demo = [
+  "**/__pycache__/*", "**/*.pyc", "**/*.pyo",
+  "science_core/generated_code/emc_alpha_olefin_builder/output/lcb100_bridge_fixed_20260424/**/*",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

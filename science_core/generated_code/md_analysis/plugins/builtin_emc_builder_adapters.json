@@ -1,0 +1,35 @@
+{
+  "schema_version": "emc_builder_adapter_plugins.v1",
+  "emc_builder_adapters": [
+    {
+      "adapter_id": "pe_lcb",
+      "module": "emc_builder_registry",
+      "class": "PeLcbEmcAdapter",
+      "replace": true
+    },
+    {
+      "adapter_id": "linear_alpha_olefin",
+      "module": "emc_builder_registry",
+      "class": "LinearAlphaOlefinEmcAdapter",
+      "replace": true
+    },
+    {
+      "adapter_id": "linear_homopolymer",
+      "module": "emc_builder_registry",
+      "class": "LinearHomopolymerEmcAdapter",
+      "replace": true
+    },
+    {
+      "adapter_id": "explicit_polymer_chain",
+      "module": "emc_builder_registry",
+      "class": "ExplicitPolymerChainEmcAdapter",
+      "replace": true
+    },
+    {
+      "adapter_id": "templated_polymer_chain",
+      "module": "emc_builder_registry",
+      "class": "TemplatedPolymerChainEmcAdapter",
+      "replace": true
+    }
+  ]
+}

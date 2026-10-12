@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Polymer-Agent 闭环证据演示">
+  <title>Polymer-Agent 闭环证据 Demo</title>
+  <link rel="stylesheet" href="/assets/styles.css?v=5">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">POLYMER-AGENT · FROZEN EVIDENCE REPLAY</div>
+      <h1>从 WARN 到可验证修复</h1>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <a href="/auto" style="color:var(--blue);border:1px solid var(--line);border-radius:6px;padding:7px 10px;background:var(--surface);font-size:12px;font-weight:700;text-decoration:none;white-space:nowrap;">自动编排 ↗</a>
+      <div class="runtime-status" aria-live="polite">
+        <span class="status-dot" id="statusDot"></span>
+        <span id="runtimeMode">连接中</span>
+        <span class="data-version" id="dataVersion"></span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="goal-band" aria-labelledby="goalTitle">
+      <div>
+        <span class="section-kicker">自然语言目标</span>
+        <h2 id="goalTitle">计算受控支化聚乙烯体系，并识别可复用的结构—性质趋势。</h2>
+      </div>
+      <div class="typed-task" aria-label="结构化任务">
+        <span>PE-LCB / C100</span>
+        <span>100 cases</span>
+        <span>density + dynamics</span>
+        <span>release with provenance</span>
+      </div>
+    </section>
+
+    <nav class="workflow" id="workflow" aria-label="闭环工作流"></nav>
+
+    <section class="case-switcher" aria-label="案例切换">
+      <div>
+        <span class="section-kicker">代表案例</span>
+        <div class="case-tabs" id="caseTabs"></div>
+      </div>
+      <button class="dry-run-button" id="dryRunButton" type="button" title="生成只读 MCP 工具调用计划">
+        <span aria-hidden="true">▶</span>
+        MCP dry-run
+      </button>
+    </section>
+
+    <section class="dry-run-banner" id="dryRunBanner" aria-live="polite">
+      <div class="dry-run-banner-main">
+        <span class="dry-run-banner-icon" id="dryRunBannerIcon">○</span>
+        <div>
+          <strong id="dryRunBannerTitle">等待 MCP dry-run</strong>
+          <span id="dryRunBannerDetail">点击按钮生成只读工具计划，不执行远程任务。</span>
+        </div>
+      </div>
+      <button class="reject-execute-button" id="rejectExecuteButton" type="button">
+        测试越权拦截
+      </button>
+    </section>
+
+    <section class="workspace-grid">
+      <article class="panel case-panel">
+        <div class="panel-header">
+          <div>
+            <span class="section-kicker">文献先验与候选验证</span>
+            <h2 id="caseTitle">加载中</h2>
+          </div>
+          <span class="verdict warn" id="ruleVerdict">WARN</span>
+        </div>
+
+        <div class="case-body">
+          <div class="polymer-visual">
+            <canvas id="polymerCanvas" width="520" height="190" aria-label="聚合物拓扑示意图"></canvas>
+            <div class="visual-caption">
+              <strong id="architectureLabel"></strong>
+              <span id="designVariable"></span>
+            </div>
+          </div>
+
+          <dl class="design-grid" id="designGrid"></dl>
+
+          <div class="evidence-strip">
+            <div>
+              <span class="section-kicker">规则判定</span>
+              <strong id="warnSources"></strong>
+            </div>
+            <div>
+              <span class="section-kicker">冻结证据</span>
+              <strong id="evidenceCount"></strong>
+            </div>
+            <div>
+              <span class="section-kicker">候选验证</span>
+              <strong id="validatorStatus"></strong>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel metric-panel">
+        <div class="panel-header">
+          <div>
+            <span class="section-kicker">修复证据与重新判定</span>
+            <h2>前后指标</h2>
+          </div>
+          <span class="state-label" id="outcomeState"></span>
+        </div>
+        <div id="metrics" class="metrics"></div>
+        <div class="outcome-note" id="outcomeNote"></div>
+      </article>
+
+      <aside class="panel audit-panel">
+        <div class="panel-header">
+          <div>
+            <span class="section-kicker">三模型归因</span>
+            <h2 id="diagnosisLabel">加载中</h2>
+          </div>
+          <span class="confidence" id="auditConfidence"></span>
+        </div>
+
+        <div class="model-votes" id="modelVotes"></div>
+
+        <section class="route-section" aria-labelledby="routeTitle">
+          <div class="route-heading">
+            <div>
+              <span class="section-kicker">MCP 路由</span>
+              <h3 id="routeTitle"></h3>
+            </div>
+            <span class="guard-pass" title="工具名与参数已通过确定性校验">GUARD PASS</span>
+          </div>
+          <p id="routeLabel"></p>
+          <pre id="toolCall"></pre>
+          <div class="guard-boundary">
+            <strong>只读边界</strong>
+            <span>本 Demo 拒绝 <code>execute=true</code>，不提交远程任务。</span>
+          </div>
+          <div class="safety-checks" id="safetyChecks">
+            <div data-check="plan"><span>○</span> 工具计划已生成</div>
+            <div data-check="guard"><span>○</span> 参数通过 guard</div>
+            <div data-check="remote"><span>○</span> 远程任务未提交</div>
+            <div data-check="canonical"><span>○</span> canonical 未修改</div>
+            <div data-check="reject"><span>○</span> execute=true 待测试</div>
+          </div>
+          <div class="dry-run-result" id="dryRunResult" aria-live="polite"></div>
+        </section>
+      </aside>
+    </section>
+
+    <section class="cohort-band" aria-labelledby="cohortTitle">
+      <div class="cohort-heading">
+        <div>
+          <span class="section-kicker">PE-LCB100 全量证据</span>
+          <h2 id="cohortTitle">100 个 case 的审计、修复与终局状态</h2>
+        </div>
+        <div class="usable-change">
+          <span>publication-grade</span>
+          <strong><span id="usableBefore">92 PASS</span> / <span id="usableAfter">8 review</span></strong>
+          <small>最终发布口径：未过有界闭环者保留为 review</small>
+        </div>
+      </div>
+      <div class="cohort-stats" id="cohortStats"></div>
+      <div class="route-bars" id="routeBars"></div>
+    </section>
+  </main>
+
+  <footer>
+    <span>数据：冻结 sidecar、MCP 只读查询和真实三模型 ledger</span>
+    <span>canonical release modified: false</span>
+  </footer>
+
+  <script src="/assets/app.js?v=5" defer></script>
+</body>
+</html>

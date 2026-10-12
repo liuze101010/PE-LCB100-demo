@@ -1,0 +1,31 @@
+; Energy minimization (steepest descent)
+integrator             = steep
+tinit                  = 0
+dt                     = 0.001
+comm-mode              = Linear
+nstcomm                = 10000
+nsteps                 = 1000000
+
+nstxout                = 0
+nstvout                = 0
+nstfout                = 0
+nstlog                 = 10000
+nstenergy              = 20000
+nstxout-compressed     = 10000
+compressed-x-precision = 1000
+
+cutoff-scheme          = Verlet
+nstlist                = 10
+ns_type                = grid
+pbc                    = xyz
+rlist                  = 1.0
+
+coulombtype            = PME
+rcoulomb               = 1.0
+fourierspacing         = 0.15
+pme_order              = 4
+ewald_rtol             = 1e-05
+
+vdwtype                = cut-off
+rvdw                   = 1.0
+DispCorr               = EnerPres

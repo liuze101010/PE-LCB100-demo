@@ -1,0 +1,35 @@
+{
+  "schema_version": "polymer_adapter_plugins.v1",
+  "polymer_adapters": [
+    {
+      "adapter_id": "pe_lcb",
+      "module": "polymer_design_validator",
+      "class": "PeLcbAdapter",
+      "replace": true
+    },
+    {
+      "adapter_id": "linear_alpha_olefin",
+      "module": "polymer_design_validator",
+      "class": "LinearAlphaOlefinAdapter",
+      "replace": true
+    },
+    {
+      "adapter_id": "linear_homopolymer",
+      "module": "polymer_design_validator",
+      "class": "LinearHomopolymerAdapter",
+      "replace": true
+    },
+    {
+      "adapter_id": "explicit_polymer_chain",
+      "module": "polymer_design_validator",
+      "class": "ExplicitPolymerChainAdapter",
+      "replace": true
+    },
+    {
+      "adapter_id": "templated_polymer_chain",
+      "module": "polymer_design_validator",
+      "class": "TemplatedPolymerChainAdapter",
+      "replace": true
+    }
+  ]
+}

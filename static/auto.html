@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="PE-LCB 离线演示:输入一句目标,给出相关案例、修复结果与数据来源">
+  <title>PE-LCB 离线演示</title>
+  <link rel="stylesheet" href="/assets/styles.css?v=5">
+  <link rel="stylesheet" href="/assets/auto.css?v=5">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">PE-LCB 智能体 · 离线演示</div>
+      <h1>输入一句研究目标,自动给出相关案例、修复结果与数据来源</h1>
+    </div>
+    <div class="topbar-right">
+      <a class="manual-link" href="/">完整平台 ↗</a>
+      <div class="runtime-status" aria-live="polite">
+        <span class="status-dot" id="statusDot"></span>
+        <span id="runtimeMode">连接中</span>
+        <span class="data-version" id="dataVersion"></span>
+      </div>
+    </div>
+  </header>
+
+  <main class="auto-main">
+    <section class="howto" aria-label="怎么用">
+      <span class="section-kicker">怎么用</span>
+      <p>① 点一个下面的示例目标(或自己写一句) ② 点「运行」 ③ 从上往下看:相关案例 → 修复前后对比 → 数据来源。全程使用预置真实数据,不联网、不提交计算。</p>
+    </section>
+
+    <section class="intent-card" id="intentCard">
+      <div>
+        <span class="section-kicker">识别到的目标</span>
+        <p id="intentSummary">写一句要研究的体系与物性,或点下方示例,再点「运行」。</p>
+        <p class="intent-warning" id="intentWarning" hidden></p>
+      </div>
+      <span class="confidence" id="intentConfidence" hidden></span>
+    </section>
+
+    <nav class="auto-progress" id="autoProgress" aria-label="闭环八步进度"></nav>
+
+    <section class="panel stream-panel">
+      <div class="panel-header">
+        <div>
+          <span class="section-kicker">运行过程</span>
+          <h2>每一步的结果</h2>
+        </div>
+        <span class="state-label" id="streamState">待运行</span>
+      </div>
+      <div class="stream" id="autoStream" aria-live="polite">
+        <div class="stream-placeholder">点「运行」后,结果会在这里逐步出现。使用预置真实数据,不联网、不提交计算。</div>
+      </div>
+    </section>
+
+    <section class="panel corpus-panel" id="corpusPanel" hidden>
+      <div class="panel-header">
+        <div>
+          <span class="section-kicker">匹配到的案例</span>
+          <h2>与你目标相关的真实案例</h2>
+        </div>
+        <span class="state-label" id="corpusCount"></span>
+      </div>
+      <div class="corpus-body">
+        <p class="corpus-filter" id="corpusFilter"></p>
+        <div class="corpus-table-wrap">
+          <table class="effect-table corpus-table" id="corpusTable"></table>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel effect-panel" id="effectPanel" hidden>
+      <div class="panel-header">
+        <div>
+          <span class="section-kicker">修复效果</span>
+          <h2>修复前后对比</h2>
+        </div>
+      </div>
+      <div class="effect-table-wrap">
+        <table class="effect-table" id="effectTable"></table>
+      </div>
+    </section>
+
+    <section class="panel evidence-panel" id="evidencePanel" hidden>
+      <div class="panel-header">
+        <div>
+          <span class="section-kicker">数据来源</span>
+          <h2>每个数字都可追溯</h2>
+        </div>
+      </div>
+      <div class="evidence-body" id="evidenceBlock"></div>
+    </section>
+
+    <section class="export-bar" id="exportBar" hidden>
+      <span class="section-kicker">导出报告</span>
+      <div class="export-buttons">
+        <button class="export-button" id="exportMdButton" type="button" disabled>导出 Markdown</button>
+        <button class="export-button" id="exportJsonButton" type="button" disabled>导出 JSON</button>
+      </div>
+    </section>
+
+    <section class="composer" aria-label="自然语言输入">
+      <div class="presets">
+        <span class="section-kicker">示例目标(点一下即可运行)</span>
+        <div class="preset-chips" id="presetExamples">
+          <button type="button" class="preset-chip" data-goal="计算受控支化聚乙烯体系，并识别可复用的结构与性质趋势。">受控支化 PE · 结构与性质趋势</button>
+          <button type="button" class="preset-chip" data-goal="评估 PE 长支链对密度与链动力学（MSD）的影响。">PE 长支链 · 密度与 MSD</button>
+          <button type="button" class="preset-chip" data-goal="为 PE-LCB100 体系生成可追溯的密度与动力学数据，并审计 WARN 案例。">PE-LCB100 · 可追溯数据 + 警示复核</button>
+        </div>
+      </div>
+      <div class="composer-input">
+        <textarea id="goalInput" rows="2" placeholder="例如：计算受控支化聚乙烯体系，并识别可复用的结构与性质趋势。"></textarea>
+        <button class="dry-run-button" id="autoRunButton" type="button">
+          <span aria-hidden="true">▶</span>
+          运行
+        </button>
+      </div>
+      <p class="composer-hint">使用预置真实数据,不联网、不提交计算。</p>
+    </section>
+  </main>
+
+  <footer>
+    <span>演示数据为真实案例的冻结记录,只读,不联网、不提交计算。</span>
+    <span>最终发布:92 通过 / 8 待复核。</span>
+  </footer>
+
+  <script src="/assets/auto.js?v=5" defer></script>
+</body>
+</html>
