@@ -6,21 +6,21 @@
     validation1: "构建与校验1完成后停止",
     md: "模拟完成后停止",
     validation2: "轨迹分析与校验2完成后停止",
-    archive: "完成结果检查、登记处理、再次校验与归档后停止"
+    archive: "完成结果检查、异常处理、再次校验与归档后停止"
   };
   function normalizeOs(value) { return value === "linux" ? "linux" : "windows"; }
   function textOr(value, fallback) { return String(value ?? "").trim() || "[" + fallback + "]"; }
   function buildPrompt(fields) {
     const stop = STOPS[fields.stop_stage] || STOPS.validation1;
     return [
-      "请使用本框架的已登记工具处理以下聚合物分子动力学任务。",
+      "请使用本框架开展以下聚合物分子动力学计算。",
       "材料：" + textOr(fields.material, "材料名称") + "；结构：" + textOr(fields.structure, "重复单元SMILES或结构文件路径") + "。",
       "模拟条件：温度 " + textOr(fields.temperature, "温度") + " K，压力 " + textOr(fields.pressure, "压力") + " atm，" +
         textOr(fields.chains, "链数") + " 条链，每链 " + textOr(fields.repeat_units, "重复单元数") + " 个重复单元。",
       "计算资源与输出目录：" + textOr(fields.resources, "服务器、CPU/GPU资源和输出目录") + "。",
-      "请先检查材料适配器、力场参数、原子与链映射，以及计算环境，再完成分子构建和校验。",
+      "请先检查分子结构、力场参数、分析所需的原子选择、链编号和端点定义，以及计算环境，再完成分子构建和校验。",
       "分析目标：" + METRICS.join("、") + "。按本轮停止阶段安排模拟与分析，并保存各项结果的单位和方法。",
-      "结果需要处理时，按登记的审计与处理步骤推进，并使用相同规则再次检查。",
+      "发现问题时，请分析原因、处理问题，并使用相同规则再次检查。",
       "本轮停止阶段：" + stop + "。停止时报告已完成步骤和继续条件。",
       "请按案例保存输入参数、工具调用、校验结果、处理记录与输出文件。"
     ].join("\n");

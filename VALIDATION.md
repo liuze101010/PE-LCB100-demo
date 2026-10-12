@@ -1,32 +1,12 @@
-# Release validation
+# 安装检查
 
-Version 1.2.1 was checked in a Windows CPython 3.12.15 environment.
-The installed-wheel checks ran outside the source directory.
+使用Python 3.12安装科学工具依赖后，在源码目录运行：
 
-| Check | Result |
-| --- | --- |
-| Complete offline application tests | 114 passed; one third-party TestClient deprecation warning |
-| Portable scientific source, bundle and fixture checks | Passed |
-| Default scientific configuration parsing | Passed; GROMACS 2024.4 and original rules retained |
-| Dependency consistency and public-tree security scan | Passed |
-| Static guide and retained interface | 3 Python tests and 6 Node tests passed |
-| Desktop and mobile guide | Passed at 1440 px and 390 px; copy controls and task templates verified |
-| Codex registration example | Accepted by the installed CLI in an isolated configuration directory |
-| Recipient project configuration | Eight delegated subprocess commands checked offline |
-| Replay-only wheel installation | Health and replay page passed; production APIs unavailable in replay mode |
-| Full scientific wheel installation | Original valid input passed and invalid input rejected; audit and MCP modules imported |
-| Scientific deployment ZIP | 153 files; source and fixture hashes verified |
+```bash
+python science_core/examples/minimal_validation.py
+python -m polymer_agent_demo.scripts.doctor --stage local-validation --json
+```
 
-GitHub Actions runs the final source suite on Windows and Linux with Python 3.12.
-The workflow results are available under the repository's Actions tab.
+输入校验示例应返回`{"valid": "pass", "invalid": "reject"}`。环境检查会列出依赖和配置情况。
 
-Three deeply nested acceptance-fixture copies are omitted from the wheel's
-readable-source tree to accommodate Windows path limits. Their original bytes
-remain in the readable Git repository and the same-version deployment ZIP.
-Installed-wheel bundle generation restores only these three fixtures after
-checking their recorded hashes. Other missing recorded source files cause an
-error.
-
-The checks used retained records and local tools. They made no model calls and
-started no production molecular-dynamics jobs. EMC, GROMACS and remote-site
-installation are checked by the user's configured deployment preflight.
+远程计算前，按[服务器说明](docs/REMOTE_SETUP.md)检查SSH、EMC、GROMACS、工作目录和可用资源。Codex接入见[连接说明](docs/CODEX_SETUP.md)。

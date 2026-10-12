@@ -13,7 +13,7 @@
     <div>
       <div class="eyebrow">本地部署 · 科学工具 · Codex</div>
       <h1>面向聚合物分子动力学模拟的智能体框架</h1>
-      <p class="subtitle">配置自己的计算服务器与模型，用自然语言调用已登记的模拟工具。</p>
+      <p class="subtitle">连接自己的计算服务器与模型，用自然语言开展聚合物模拟与分析。</p>
     </div>
     <nav class="header-links" aria-label="页面导航">
       <a class="link-button" href="#install">开始安装</a>
@@ -22,7 +22,7 @@
   </header>
   <main class="guide-main">
     <section class="intro" aria-label="使用方式">
-      <p>在本机安装框架，通过SSH连接计算服务器，配置规划与审计模型，再把科研工具接入Codex。你可以直接描述材料、模拟条件、分析目标和停止阶段，由智能体按工具检查结果推进。</p>
+      <p>在本机安装框架，通过SSH连接计算服务器，配置模型，再把模拟工具接入Codex。你可以直接说明材料、模拟条件、分析目标和停止阶段，智能体据此安排构建、模拟、分析与结果检查。</p>
       <div class="quick-links">
         <a href="#install">1 本地安装</a><a href="#configure">2 配置环境</a><a href="#codex">3 接入Codex</a><a href="#prompt">4 描述任务</a>
       </div>
@@ -43,17 +43,17 @@
       <div class="section-heading"><span class="section-kicker">第二步</span><h2 id="configureTitle">准备服务器、模型和材料输入</h2></div>
       <div class="setup-grid">
         <article class="setup-card"><span class="card-number">01</span><h3>计算服务器</h3><p>填写SSH账户、远程工作目录、GROMACS与EMC路径，以及允许使用的CPU/GPU资源。先检查连接和软件环境，再安排计算。</p><a data-doc="remote" href="https://github.com/liuze101010/PE-LCB100-demo/blob/HEAD/docs/REMOTE_SETUP.md" target="_blank" rel="noopener">查看服务器配置 ↗</a></article>
-        <article class="setup-card"><span class="card-number">02</span><h3>规划与审计模型</h3><p>按所用模型填写型号与接口，密钥保存在本机环境变量中。规划模型选择步骤，审计模型根据工具记录分析问题。</p><a data-doc="models" href="https://github.com/liuze101010/PE-LCB100-demo/blob/HEAD/docs/MODEL_SETUP.md" target="_blank" rel="noopener">查看模型配置 ↗</a></article>
-        <article class="setup-card"><span class="card-number">03</span><h3>聚合物材料</h3><p>准备材料名称、重复单元或完整链结构，以及构建与力场信息。材料输入保存结构和链数，项目配置指定输入输出目录。</p><a data-doc="materials" href="https://github.com/liuze101010/PE-LCB100-demo/blob/HEAD/docs/MATERIAL_SETUP.md" target="_blank" rel="noopener">查看材料输入 ↗</a></article>
+        <article class="setup-card"><span class="card-number">02</span><h3>规划与审计模型</h3><p>填写模型型号与接口，密钥保存在本机环境变量中。规划模型安排计算步骤，审计模型分析检查中发现的问题。</p><a data-doc="models" href="https://github.com/liuze101010/PE-LCB100-demo/blob/HEAD/docs/MODEL_SETUP.md" target="_blank" rel="noopener">查看模型配置 ↗</a></article>
+        <article class="setup-card"><span class="card-number">03</span><h3>聚合物材料</h3><p>提供材料名称、重复单元或完整链结构，并指定力场、链数和每链长度。选择适合该材料的构建与分析方法，填写输入输出目录。</p><a data-doc="materials" href="https://github.com/liuze101010/PE-LCB100-demo/blob/HEAD/docs/MATERIAL_SETUP.md" target="_blank" rel="noopener">查看材料输入 ↗</a></article>
       </div>
-      <p class="material-note">框架通过已登记的材料适配器处理不同聚合物。每种材料先核对分子结构、力场参数和原子／链映射，再完成构建与校验。工具会记录需要补齐的参数和检查结果，后续模拟与分析使用通过检查的输入。</p>
+      <p class="material-note">当前提供聚乙烯模拟方案。使用其他聚合物时，需配置对应的分子构建、力场、模拟条件，以及分析所需的原子选择、链编号和端点定义。框架检查输入后，再开展模拟与分析。</p>
     </section>
     <section class="panel" id="codex" aria-labelledby="codexTitle">
       <div class="panel-header"><div><span class="section-kicker">第三步</span><h2 id="codexTitle">把科研工具接入Codex</h2></div></div>
       <div class="panel-body">
         <ol class="instructions">
           <li>安装并登录Codex，在本地项目目录开展任务。</li>
-          <li>按配置模板登记STDIO MCP服务：填写虚拟环境Python、工具入口和项目配置的绝对路径。</li>
+          <li>按配置模板添加MCP服务：填写虚拟环境Python、工具入口和项目配置的绝对路径。</li>
           <li>用 <code>codex mcp list</code> 核对服务，在Codex终端输入 <code>/mcp</code> 查看当前连接。</li>
         </ol>
         <div class="code-box"><pre id="codexCode">codex login
@@ -85,7 +85,7 @@ codex --cd .</pre><button type="button" class="copy-button" data-copy="codexCode
       </div>
     </section>
     <section class="panel" aria-labelledby="workflowTitle">
-      <div class="panel-header"><div><span class="section-kicker">执行流程</span><h2 id="workflowTitle">按工具检查结果推进</h2></div></div>
+      <div class="panel-header"><div><span class="section-kicker">执行流程</span><h2 id="workflowTitle">从任务描述到计算结果</h2></div></div>
       <div class="workflow-list" id="workflow"></div>
     </section>
     <section class="next-links" aria-label="更多说明"><a data-doc="readme" href="https://github.com/liuze101010/PE-LCB100-demo/blob/HEAD/README_CN.md" target="_blank" rel="noopener">完整使用说明 ↗</a><a data-doc="source" href="https://github.com/liuze101010/PE-LCB100-demo/tree/HEAD/science_core" target="_blank" rel="noopener">浏览科学工具源码 ↗</a></section>

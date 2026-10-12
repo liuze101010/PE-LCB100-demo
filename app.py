@@ -104,7 +104,7 @@ def create_app(
     )
     app = FastAPI(
         title="面向聚合物分子动力学模拟的智能体框架",
-        version="1.2.1",
+        version="1.2.2",
         docs_url="/api/docs",
         redoc_url=None,
     )

@@ -1,46 +1,20 @@
-# Scientific workflow source
+# 科学计算工具
 
-This directory contains the original MIT-licensed PE-LCB100 workflow source,
-with the `generated_code/` layout preserved. `UPSTREAM.json` records each
-upstream source and SHA256; the deployment bundle records current hashes and
-the version in `VERSION`.
+本目录提供分子构建、拓扑转换、模拟、轨迹分析、独立校验、审计和异常处理源码。
 
-The baseline is the 2026-08-10 code release (`2fdaf77`). The teacher review
-package contains the same selected source files. Local project-path handling
-and public configuration are adapted for installation in another directory.
-
-Run the deterministic molecular-input example after installing the scientific
-dependencies from the repository root:
+在仓库根目录安装科学依赖后，运行最小输入校验示例：
 
 ```bash
 python science_core/examples/minimal_validation.py
 ```
 
-Expected output: `{"valid": "pass", "invalid": "reject"}`.
+预期输出为`{"valid": "pass", "invalid": "reject"}`。
 
-The original tool API is
-`generated_code/md_analysis/mcp/pelcb_mcp_server.py`. Set
-`PELCB_PROJECT_CONFIG` to your own project JSON before starting this stdio MCP
-entry point. Public configurations use environment placeholders for remote
-accounts and paths. Register new inputs and output directories before invoking
-execution tools.
+MCP入口为`generated_code/md_analysis/mcp/pelcb_mcp_server.py`。通过`PELCB_PROJECT_CONFIG`指定自己的项目JSON，填写输入、输出、SSH账户和科学软件路径。新项目使用`generated_code/md_analysis/configs/pelcb100.public.json`作为配置模板。
 
-The recommended production examples are `configs/pelcb100.public.json` and
-the default `configs/pelcb100.json`, below `generated_code/md_analysis/`.
-Every registered production profile declares GROMACS 2024.4. Fill your SSH
-account and host, remote paths, allowed nodes and resource limits, and set
-`gmx_bin` to your GROMACS 2024.4 executable. The retained `template.local.json`
-and `template.server.json` files are **legacy comparison references**. They
-preserve the earlier configuration shape; use the recommended examples for
-new production work.
+远程模拟需要EMC、GROMACS 2024.4和可用计算资源；审计模型按所用入口单独配置。计算产物保存在任务目录。
 
-The directory includes construction and topology conversion, the original MD
-templates and MDP files, deterministic input/result checks, rules and public
-density references, model-audit schemas and prompts, repair routes, re-gating
-and release bookkeeping. Model providers, cluster access, EMC and GROMACS are
-separate runtime dependencies.
-
-The small coordinate/topology files below the retained `output/` fixture path
-are acceptance-test inputs already shipped by the public demonstration. They
-contain no trajectories or model-response records. Production results and
-private credentials are written to task-specific runtime directories.
+- [连接Codex](../docs/CODEX_SETUP.md)
+- [连接服务器](../docs/REMOTE_SETUP.md)
+- [配置模型](../docs/MODEL_SETUP.md)
+- [配置材料与分析](../docs/MATERIAL_SETUP.md)

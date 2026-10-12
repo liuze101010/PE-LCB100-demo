@@ -187,12 +187,12 @@ def guide_payload(repository: str, revision: str = "HEAD") -> dict:
         },
         "workflow": [
             {"title": "明确研究目标", "description": "说明材料、结构、条件、分析指标和停止阶段。"},
-            {"title": "检查材料与环境", "description": "核对材料适配器、力场、映射、软件和计算资源。"},
+            {"title": "检查材料与环境", "description": "核对分子结构、力场、分析定义、软件和计算资源。"},
             {"title": "分子设计", "description": "生成或读取候选结构，保留设计依据和输入信息。"},
             {"title": "构建与校验1", "description": "构建分子体系，检查结构、拓扑和模拟输入。"},
-            {"title": "分子动力学模拟", "description": "使用确认后的方案，按资源检查结果安排计算。"},
+            {"title": "分子动力学模拟", "description": "在可用计算资源上运行指定的模拟方案。"},
             {"title": "轨迹分析", "description": "提取密度、Rg、Ree、链形状、RDF和MSD。"},
-            {"title": "校验2与审计处理", "description": "由可执行规则检查结果，按登记步骤分析和处理问题。"},
+            {"title": "校验2与审计处理", "description": "检查计算结果，分析原因并处理发现的问题。"},
             {"title": "再次校验与归档", "description": "再次检查处理结果，按案例保存参数、记录和产物。"},
         ],
     }
