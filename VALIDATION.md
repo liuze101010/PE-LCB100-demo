@@ -1,16 +1,18 @@
 # Release validation
 
-Version 1.2.0 was checked in an independent Windows CPython 3.12.15 environment.
+Version 1.2.1 was checked in a Windows CPython 3.12.15 environment.
 The installed-wheel checks ran outside the source directory.
 
 | Check | Result |
 | --- | --- |
-| Complete offline application tests | 113 passed; one third-party TestClient deprecation warning |
+| Complete offline application tests | 114 passed; one third-party TestClient deprecation warning |
 | Portable scientific source, bundle and fixture checks | Passed |
 | Default scientific configuration parsing | Passed; GROMACS 2024.4 and original rules retained |
 | Dependency consistency and public-tree security scan | Passed |
-| Static website exports and search | 3 Python tests and 3 Node tests passed |
-| Desktop and mobile browser checks | Passed at 1440 px and 390 px; all 12 requests were local GET requests |
+| Static guide and retained interface | 3 Python tests and 6 Node tests passed |
+| Desktop and mobile guide | Passed at 1440 px and 390 px; copy controls and task templates verified |
+| Codex registration example | Accepted by the installed CLI in an isolated configuration directory |
+| Recipient project configuration | Eight delegated subprocess commands checked offline |
 | Replay-only wheel installation | Health and replay page passed; production APIs unavailable in replay mode |
 | Full scientific wheel installation | Original valid input passed and invalid input rejected; audit and MCP modules imported |
 | Scientific deployment ZIP | 153 files; source and fixture hashes verified |

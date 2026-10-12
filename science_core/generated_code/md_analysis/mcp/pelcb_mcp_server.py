@@ -115,7 +115,11 @@ def _project_config_path() -> str | Path:
     )
 
 
-PROJECT_CONFIG = load_lcb_config(_project_config_path())
+PROJECT_CONFIG_PATH = Path(os.path.expandvars(str(_project_config_path()))).expanduser()
+if not PROJECT_CONFIG_PATH.is_absolute():
+    PROJECT_CONFIG_PATH = PROJECT_ROOT / PROJECT_CONFIG_PATH
+PROJECT_CONFIG_PATH = PROJECT_CONFIG_PATH.resolve()
+PROJECT_CONFIG = load_lcb_config(PROJECT_CONFIG_PATH)
 AGGREGATE_DIR = PROJECT_CONFIG.integrated_output_dir
 A3_DIR = PROJECT_CONFIG.a3_results_dir
 RUNTIME_DIR = PROJECT_CONFIG.runtime_output_dir
@@ -1131,7 +1135,7 @@ def get_repair_loop_latest_impl() -> dict[str, Any]:
 
 def plan_repair_loop_impl(include_optional_validation: bool = False, tag: str | None = None) -> dict[str, Any]:
     run_tag = tag or f"mcp_repair_loop_plan_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
-    command = [sys.executable, str(REPAIR_LOOP), "--tag", run_tag]
+    command = [sys.executable, str(REPAIR_LOOP), "--config", str(PROJECT_CONFIG_PATH), "--tag", run_tag]
     if include_optional_validation:
         command.append("--include-optional-validation")
     run_result = _run_subprocess(command, timeout=3600)
@@ -1156,7 +1160,8 @@ def get_msd_window_repair_latest_impl() -> dict[str, Any]:
 
 def plan_msd_window_repair_impl(tag: str | None = None, case_ids: list[str] | None = None) -> dict[str, Any]:
     run_tag = tag or f"mcp_msd_window_repair_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
-    command = [sys.executable, str(MSD_WINDOW_REPAIR), "--tag", run_tag]
+    command = [sys.executable, str(MSD_WINDOW_REPAIR), "--mask", str(AGGREGATE_DIR / "ml_quality_mask.csv"),
+               "--output-dir", str(REPAIR_LOOP_DIR), "--tag", run_tag]
     for case_id in case_ids or []:
         command.extend(["--case-id", str(case_id)])
     run_result = _run_subprocess(command, timeout=3600)
@@ -1181,7 +1186,9 @@ def get_msd_window_overlay_latest_impl() -> dict[str, Any]:
 
 def plan_msd_window_overlay_impl(tag: str | None = None) -> dict[str, Any]:
     run_tag = tag or f"mcp_msd_window_overlay_v3_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
-    command = [sys.executable, str(MSD_WINDOW_OVERLAY), "--tag", run_tag]
+    command = [sys.executable, str(MSD_WINDOW_OVERLAY), "--mask", str(AGGREGATE_DIR / "ml_quality_mask.csv"),
+               "--targets", str(AGGREGATE_DIR / "ml_targets.csv"), "--output-root", str(OVERLAY_DIR),
+               "--tag", run_tag]
     run_result = _run_subprocess(command, timeout=1800)
     latest = get_msd_window_overlay_latest_impl()
     return {
@@ -1207,6 +1214,8 @@ def plan_packing_void_repair_impl(tag: str | None = None, case_ids: list[str] | 
     command = [
         sys.executable,
         str(PACKING_VOID_REPAIR),
+        "--summary",
+        str(PROJECT_CONFIG.integrated_summary_csv),
         "--tag",
         run_tag,
         "--output-dir",
@@ -1254,6 +1263,8 @@ def run_repair_loop_impl(
     command = [
         sys.executable,
         str(REPAIR_LOOP),
+        "--config",
+        str(PROJECT_CONFIG_PATH),
         "--execute",
         "--allowlist-tag",
         "PELCB_REPAIR_LOOP_EXECUTE",
@@ -1318,9 +1329,18 @@ def extend_clean_nvt_prod_impl(
         return result
 
     run_tag = f"mcp_clean_nvt_extension_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+    extension_output_dir = PROJECT_CONFIG.supervisor_output_dir / "o7_clean_nvt_extension"
     command = [
         sys.executable,
         str(NVT_EXTENSION),
+        "--config",
+        str(PROJECT_CONFIG_PATH),
+        "--status-csv",
+        str(O7_CLOSURE_DIR / "o7_clean_run_status.csv"),
+        "--queue-dir",
+        str(O7_QUEUE_DIR),
+        "--output-dir",
+        str(extension_output_dir),
         "--tag",
         run_tag,
         "--cases",
@@ -1335,7 +1355,7 @@ def extend_clean_nvt_prod_impl(
     result = {
         "status": "submitted" if run_result["ok"] else "failed",
         "case_id": str(case_id).strip(),
-        "affected_path": str(MD_ANALYSIS_DIR / "output" / "pelcb100_clean_nvt_extension" / run_tag),
+        "affected_path": str(extension_output_dir / run_tag),
         "command": command,
         "subprocess": run_result,
         "execution_policy": {
@@ -1381,6 +1401,10 @@ def _run_subprocess(command: list[str], cwd: Path = PROJECT_ROOT, timeout: int =
     # tree is terminated and the temp files are read (file reads never block).
     timed_out = False
     popen_kwargs: dict[str, Any] = {"cwd": str(cwd), "stdin": subprocess.DEVNULL}
+    child_environment = os.environ.copy()
+    child_environment["PELCB_PROJECT_CONFIG"] = str(PROJECT_CONFIG_PATH)
+    child_environment["LCB_PROJECT_CONFIG"] = str(PROJECT_CONFIG_PATH)
+    popen_kwargs["env"] = child_environment
     if os.name == "nt":
         popen_kwargs["creationflags"] = getattr(subprocess, "CREATE_NEW_PROCESS_GROUP", 0)
     else:
@@ -1431,6 +1455,12 @@ def submit_supervisor_case_impl(
     command = [
         sys.executable,
         str(MD_ANALYSIS_DIR / "o7_clean_supervisor_queue.py"),
+        "--config",
+        str(PROJECT_CONFIG_PATH),
+        "--queue-dir",
+        str(O7_QUEUE_DIR),
+        "--source-csv",
+        str(PROJECT_CONFIG.supervisor_output_dir / "o7_clean_engine_audit_20260522" / "source_dirs_combined_unique.csv"),
         "--cases",
         case_id,
         "--max-submit",
@@ -1464,7 +1494,8 @@ def run_postprocess_closure_impl(
         result = {"status": "rejected", "reason": "only o7clean closure is implemented in this sidecar"}
         _ledger("run_postprocess_closure", request, result)
         return result
-    command = [sys.executable, str(MD_ANALYSIS_DIR / "o7_clean_closure.py")]
+    command = [sys.executable, str(MD_ANALYSIS_DIR / "o7_clean_closure.py"),
+               "--queue-dir", str(O7_QUEUE_DIR), "--output-dir", str(O7_CLOSURE_DIR)]
     if auto_submit_postprocess:
         command.append("--auto-submit-postprocess")
     run_result = _run_subprocess(command, timeout=3600)

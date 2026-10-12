@@ -1,4 +1,6 @@
-# PE-LCB Research Platform deployment
+# 面向聚合物分子动力学模拟的智能体框架：网页工作台部署
+
+本地Codex与科学工具接入见[Codex指南](../docs/CODEX_SETUP.md)。本页介绍可选的多用户网页工作台。
 
 ## 1. Control-plane host
 

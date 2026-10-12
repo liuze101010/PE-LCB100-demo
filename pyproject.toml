@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "polymer-agent-demo"
-version = "1.2.0"
-description = "Reproducible PE-LCB100 closed-loop Polymer-Agent demo"
+version = "1.2.1"
+description = "Agent framework for polymer molecular dynamics simulations"
 readme = "README.md"
 requires-python = ">=3.11"
 license = {file = "LICENSE"}
@@ -64,6 +64,9 @@ polymer_agent_demo = [
   "deploy/*.sh",
   "deploy/Caddyfile",
   "science_core/**/*",
+  "AGENTS.md",
+  "docs/*.md",
+  "examples/codex/*.toml",
 ]
 
 [tool.setuptools.exclude-package-data]

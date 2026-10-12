@@ -176,3 +176,63 @@ def test_recommended_public_configs_parse_as_gromacs_2024_with_operator_resource
         assert operator.remote_root == "/srv/project/new_run"
     mcp = (analysis / "mcp/pelcb_mcp_server.py").read_text(encoding="utf-8")
     assert 'MD_ANALYSIS_DIR / "configs" / "pelcb100.json"' in mcp
+
+
+def test_mcp_delegations_keep_recipient_config_and_paths_without_starting_children(monkeypatch, tmp_path):
+    analysis = ROOT / "science_core/generated_code/md_analysis"
+    payload = json.loads((analysis / "configs/pelcb100.public.json").read_text(encoding="utf-8"))
+    payload["project_id"] = "recipient"
+    for field in ("integrated_root", "runtime_output_dir", "supervisor_output_dir", "emc_output_dir",
+                  "repair_loop_dir", "warn_audit_output_dir", "packing_void_output_dir", "overlay_dir",
+                  "rule_profile_dir", "o7_queue_dir", "o7_closure_dir"):
+        payload[field] = str(tmp_path / "recipient" / field)
+    config = tmp_path / "recipient config.json"
+    config.write_text(json.dumps(payload), encoding="utf-8")
+    monkeypatch.setenv("PELCB_PROJECT_CONFIG", str(config))
+    monkeypatch.setenv("LCB_PROJECT_CONFIG", str(tmp_path / "different legacy config.json"))
+    monkeypatch.syspath_prepend(str(analysis))
+    mcp = load_file("recipient_original_mcp", analysis / "mcp/pelcb_mcp_server.py")
+    captured = []
+    class CapturedProcess:
+        returncode = 0
+        pid = 0
+        def __init__(self, command, **kwargs):
+            captured.append((command, kwargs))
+        def wait(self, timeout):
+            return 0
+    monkeypatch.setattr(mcp.subprocess, "Popen", CapturedProcess)
+    monkeypatch.setattr(mcp, "_ledger", lambda *args, **kwargs: None)
+    reason = "Check recipient configuration in captured offline commands"
+    o7 = dict(project_id="o7clean", allowlist_tag="PELCB_MCP_EXECUTE_O7CLEAN",
+              execute=True, reason=reason)
+    repair = dict(project_id="pelcb_repair_loop", allowlist_tag="PELCB_MCP_EXECUTE_REPAIR_LOOP",
+                  execute=True, reason=reason)
+    assert mcp.submit_supervisor_case_impl(case_id="recipient_case", **o7)["status"] == "executed"
+    assert mcp.run_postprocess_closure_impl(**o7)["status"] == "executed"
+    assert mcp.run_repair_loop_impl(**repair)["status"] == "executed"
+    assert mcp.extend_clean_nvt_prod_impl(case_id="recipient_case", **repair)["status"] == "submitted"
+    mcp.plan_repair_loop_impl(tag="offline_plan")
+    mcp.plan_msd_window_repair_impl(tag="offline_msd")
+    mcp.plan_msd_window_overlay_impl(tag="offline_overlay")
+    mcp.plan_packing_void_repair_impl(tag="offline_packing")
+    assert len(captured) == 8
+    by_script = {}
+    for command, kwargs in captured:
+        by_script.setdefault(Path(command[1]).name, []).append(command)
+        assert kwargs["env"]["PELCB_PROJECT_CONFIG"] == str(config.resolve())
+        assert kwargs["env"]["LCB_PROJECT_CONFIG"] == str(config.resolve())
+    for name in ("o7_clean_supervisor_queue.py", "pelcb_repair_loop.py", "pelcb_clean_nvt_extension.py"):
+        for command in by_script[name]:
+            assert command[command.index("--config") + 1] == str(config.resolve())
+    for name in ("o7_clean_supervisor_queue.py", "o7_clean_closure.py", "pelcb_clean_nvt_extension.py"):
+        command = by_script[name][0]
+        assert command[command.index("--queue-dir") + 1] == payload["o7_queue_dir"]
+    closure = by_script["o7_clean_closure.py"][0]
+    assert "--config" not in closure  # This original CLI supports queue/output paths instead.
+    assert closure[closure.index("--output-dir") + 1] == payload["o7_closure_dir"]
+    msd = by_script["pelcb_msd_window_repair.py"][0]
+    assert msd[msd.index("--mask") + 1] == str(Path(payload["integrated_root"]) / "aggregate/ml_quality_mask.csv")
+    packing = by_script["pelcb_packing_void.py"][0]
+    assert packing[packing.index("--summary") + 1] == str(Path(payload["integrated_root"]) / "aggregate/recipient_summary_wide.csv")
+    extension = by_script["pelcb_clean_nvt_extension.py"][0]
+    assert "--extend-ns" not in extension  # Preserve the registered deterministic duration.

@@ -1,6 +1,6 @@
-"""Build a portable, frozen paper-case replay for GitHub Pages.
+"""Build the local-deployment and usage guide for GitHub Pages.
 
-Uses only Python's standard library and the shipped public JSON records.
+Uses only Python's standard library. An optional archive retains public records.
 It never imports the application, initializes a database, or contacts a model.
 """
 from __future__ import annotations
@@ -11,6 +11,7 @@ import hashlib
 import json
 import os
 import shutil
+import tomllib
 from pathlib import Path
 
 
@@ -127,7 +128,7 @@ def write_markdown(payload: dict, destination: Path) -> None:
     destination.write_text("\n".join(lines), encoding="utf-8")
 
 
-def build(output: Path, repository: str, revision: str = "HEAD") -> dict:
+def build_archive(output: Path, repository: str, revision: str = "HEAD") -> dict:
     records = load_records()
     payload = public_payload(records, repository, revision)
     output = output.resolve()
@@ -137,9 +138,9 @@ def build(output: Path, repository: str, revision: str = "HEAD") -> dict:
     data = output / "data"
     assets.mkdir(parents=True, exist_ok=True)
     data.mkdir(parents=True, exist_ok=True)
-    for filename in ("styles.css", "auto.css", "pages.css", "pages.js"):
+    for filename in ("styles.css", "auto.css", "case_replay.css", "case_replay.js"):
         shutil.copy2(ROOT / "static" / filename, assets / filename)
-    shutil.copy2(ROOT / "static" / "pages.html", output / "index.html")
+    shutil.copy2(ROOT / "static" / "case_replay.html", output / "index.html")
     (output / ".nojekyll").write_text("", encoding="utf-8")
     (data / "pages_data.json").write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     for name in SOURCE_FILES:
@@ -153,14 +154,79 @@ def build(output: Path, repository: str, revision: str = "HEAD") -> dict:
             "audited_cases": 97, "model_votes": 291}
 
 
+def guide_payload(repository: str, revision: str = "HEAD") -> dict:
+    repository = repository.rstrip("/")
+    blob = repository + "/blob/" + revision + "/"
+    version = tomllib.loads((ROOT / "pyproject.toml").read_text(encoding="utf-8"))["project"]["version"]
+    return {
+        "schema_version": "polymer_agent.usage_guide.v1",
+        "mode": "usage_guide", "title": "面向聚合物分子动力学模拟的智能体框架",
+        "version": version, "repository": repository,
+        "links": {
+            "readme": blob + "README_CN.md", "remote": blob + "docs/REMOTE_SETUP.md",
+            "models": blob + "docs/MODEL_SETUP.md", "materials": blob + "docs/MATERIAL_SETUP.md",
+            "codex": blob + "docs/CODEX_SETUP.md",
+            "windows_template": blob + "examples/codex/windows.toml",
+            "linux_template": blob + "examples/codex/linux.toml",
+            "source": repository + "/tree/" + revision + "/science_core",
+        },
+        "install_commands": {
+            "windows": "\n".join([
+                "git clone " + repository + ".git", "cd " + repository.rsplit("/", 1)[-1],
+                "py -3.12 -m venv .venv",
+                '.\\.venv\\Scripts\\python.exe -m pip install ".[science]"',
+                "New-Item -ItemType Directory -Force configs | Out-Null",
+                "Copy-Item science_core\\generated_code\\md_analysis\\configs\\pelcb100.public.json configs\\project.local.json",
+            ]),
+            "linux": "\n".join([
+                "git clone " + repository + ".git", "cd " + repository.rsplit("/", 1)[-1],
+                "python3.12 -m venv .venv", '.venv/bin/python -m pip install ".[science]"',
+                "mkdir -p configs",
+                "cp science_core/generated_code/md_analysis/configs/pelcb100.public.json configs/project.local.json",
+            ]),
+        },
+        "workflow": [
+            {"title": "明确研究目标", "description": "说明材料、结构、条件、分析指标和停止阶段。"},
+            {"title": "检查材料与环境", "description": "核对材料适配器、力场、映射、软件和计算资源。"},
+            {"title": "分子设计", "description": "生成或读取候选结构，保留设计依据和输入信息。"},
+            {"title": "构建与校验1", "description": "构建分子体系，检查结构、拓扑和模拟输入。"},
+            {"title": "分子动力学模拟", "description": "使用确认后的方案，按资源检查结果安排计算。"},
+            {"title": "轨迹分析", "description": "提取密度、Rg、Ree、链形状、RDF和MSD。"},
+            {"title": "校验2与审计处理", "description": "由可执行规则检查结果，按登记步骤分析和处理问题。"},
+            {"title": "再次校验与归档", "description": "再次检查处理结果，按案例保存参数、记录和产物。"},
+        ],
+    }
+
+
+def build(output: Path, repository: str, revision: str = "HEAD", include_archive: bool = False) -> dict:
+    output = output.resolve()
+    if output == ROOT or ROOT in output.parents and output.name in {"data", "static", "scripts"}:
+        raise ValueError("Use a separate output directory, such as site/")
+    assets = output / "assets"
+    data = output / "data"
+    assets.mkdir(parents=True, exist_ok=True)
+    data.mkdir(parents=True, exist_ok=True)
+    for filename in ("styles.css", "pages.css", "pages.js"):
+        shutil.copy2(ROOT / "static" / filename, assets / filename)
+    shutil.copy2(ROOT / "static" / "pages.html", output / "index.html")
+    (output / ".nojekyll").write_text("", encoding="utf-8")
+    guide = guide_payload(repository, revision)
+    (data / "guide.json").write_text(json.dumps(guide, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    result = {"output": str(output), "mode": "usage_guide", "workflow_steps": 8}
+    if include_archive:
+        result["archive"] = build_archive(output / "archive", repository, revision)
+    return result
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=ROOT / "site")
     parser.add_argument("--repository", default="https://github.com/" + os.environ.get(
         "GITHUB_REPOSITORY", "liuze101010/PE-LCB100-demo"))
     parser.add_argument("--revision", default="HEAD", help="GitHub source revision, default: HEAD")
+    parser.add_argument("--include-archive", action="store_true", help="Also export retained case records under archive/")
     args = parser.parse_args()
-    print(json.dumps(build(args.output, args.repository, args.revision), ensure_ascii=False))
+    print(json.dumps(build(args.output, args.repository, args.revision, args.include_archive), ensure_ascii=False))
 
 
 if __name__ == "__main__":

@@ -103,8 +103,8 @@ def create_app(
         allow_live=application_mode == "platform",
     )
     app = FastAPI(
-        title="Polymer-Agent Closed-Loop Demo",
-    version="1.2.0",
+        title="面向聚合物分子动力学模拟的智能体框架",
+        version="1.2.1",
         docs_url="/api/docs",
         redoc_url=None,
     )
@@ -276,4 +276,4 @@ def create_app(
 if DEFAULT_SNAPSHOT.exists():
     app = create_app()
 else:
-    app = FastAPI(title="Polymer-Agent Demo: snapshot not built")
+    app = FastAPI(title="面向聚合物分子动力学模拟的智能体框架：本地数据待准备")

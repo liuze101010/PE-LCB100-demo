@@ -1,15 +1,8 @@
-"""Optional real-browser QA for a locally served static replay.
-
-Example: python tests/check_pages_browser.py --url http://127.0.0.1:8876/site/
-Requires Playwright and a locally installed Playwright browser; no model keys.
-"""
+"""Optional clean-browser QA for the static deployment and usage guide."""
 from __future__ import annotations
 
 import argparse
-import csv
-import io
 import json
-import tempfile
 from pathlib import Path
 
 
@@ -17,62 +10,71 @@ def check(url: str, artifacts: Path) -> dict:
     from playwright.sync_api import expect, sync_playwright
 
     artifacts.mkdir(parents=True, exist_ok=True)
-    requests = []
-    errors = []
-    with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(headless=True)
-        page = browser.new_page(viewport={"width": 1440, "height": 1100}, device_scale_factor=1)
+    requests, http_errors, console_errors, page_errors, failed_requests = [], [], [], [], []
+    with sync_playwright() as runtime:
+        browser = runtime.chromium.launch(headless=True)
+        context = browser.new_context(viewport={"width": 1440, "height": 1100},
+                                      permissions=["clipboard-read", "clipboard-write"])
+        page = context.new_page()
         page.on("request", lambda request: requests.append({"url": request.url, "method": request.method}))
-        page.on("pageerror", lambda error: errors.append(str(error)))
+        page.on("response", lambda response: http_errors.append({"url": response.url, "status": response.status}) if response.status >= 400 else None)
+        page.on("console", lambda message: console_errors.append(message.text) if message.type == "error" else None)
+        page.on("pageerror", lambda error: page_errors.append(str(error)))
+        page.on("requestfailed", lambda request: failed_requests.append(request.url))
         page.goto(url, wait_until="networkidle")
-        expect(page.locator("#caseRows tr")).to_have_count(100)
-        expect(page.locator(".case-tile.review")).to_have_count(8)
-        expect(page.locator("#workflowDetails details")).to_have_count(8)
+        expect(page.locator("h1")).to_have_text("面向聚合物分子动力学模拟的智能体框架")
+        expect(page.locator(".workflow-step")).to_have_count(8)
+        assert "论文" not in page.locator("body").inner_text()
+        assert "PE006" not in page.locator("body").inner_text()
+        expect(page.get_by_role("tab", name="Windows · PowerShell")).to_have_attribute("aria-selected", "true")
+        page.get_by_role("tab", name="Linux", exact=True).click()
+        assert "python3.12 -m venv" in page.locator("#installCode").inner_text()
+        assert page.locator("#codexTemplateLink").get_attribute("href").endswith("/examples/codex/linux.toml")
+        page.get_by_role("button", name="复制安装命令", exact=True).click()
+        expect(page.locator("#copyFeedback")).to_contain_text("已复制")
+        assert page.evaluate("navigator.clipboard.readText()").replace("\r\n", "\n") == page.locator("#installCode").inner_text()
+        page.get_by_role("tab", name="Linux", exact=True).press("ArrowLeft")
+        expect(page.get_by_role("tab", name="Windows · PowerShell")).to_have_attribute("aria-selected", "true")
+        assert "py -3.12 -m venv" in page.locator("#installCode").inner_text()
         page.screenshot(path=str(artifacts / "desktop.png"), full_page=True)
 
-        page.get_by_role("button", name="8例待复核", exact=True).click()
-        expect(page.locator("#caseRows tr")).to_have_count(8)
-        expect(page.locator("#caseCount")).to_have_text("8例 · 0 PASS / 8 REVIEW")
-        page.locator("#goalInput").fill("查看4个支化点、12碳支链的案例")
-        page.get_by_role("button", name="查看记录", exact=True).click()
-        matched = page.locator("#caseRows tr").count()
-        assert matched > 0
-        for cells in page.locator("#caseRows tr").all():
-            assert cells.locator("td").nth(1).inner_text() == "4"
-            assert cells.locator("td").nth(2).inner_text() == "12"
+        page.locator("[name=material]").fill("测试聚合物")
+        page.locator("[name=structure]").fill("*CCO*")
+        page.locator("[name=temperature]").fill("350")
+        page.locator("[name=pressure]").fill("1")
+        page.locator("[name=chains]").fill("10")
+        page.locator("[name=repeat_units]").fill("20")
+        page.locator("[name=resources]").fill("用户服务器与输出目录")
+        page.locator("[name=stop_stage]").select_option("validation2")
+        page.get_by_role("button", name="整理任务描述", exact=True).click()
+        prompt = page.locator("#promptText").input_value()
+        for value in ("测试聚合物", "*CCO*", "350 K", "1 atm", "10 条链", "20 个重复单元",
+                      "密度", "Rg", "Ree", "链形状", "RDF", "MSD", "轨迹分析与校验2完成后停止"):
+            assert value in prompt
+        page.get_by_role("button", name="复制任务描述", exact=True).click()
+        expect(page.locator("#copyFeedback")).to_contain_text("已复制")
+        assert page.evaluate("navigator.clipboard.readText()").replace("\r\n", "\n") == prompt
 
-        page.get_by_role("button", name="显示全部", exact=True).click()
-        expect(page.locator("#caseRows tr")).to_have_count(100)
-        page.locator("[data-step='5']").click()
-        assert page.locator("#step-5").evaluate("element => element.open")
-        page.locator("#representatives [data-case]").first.click()
-        expect(page.locator("#caseDetail")).to_be_visible()
-        expect(page.locator("#detailTitle")).to_have_text("PE006 · PASS")
-        with tempfile.TemporaryDirectory() as download_dir:
-            with page.expect_download() as download_info:
-                page.get_by_role("button", name="下载该案例JSON", exact=True).click()
-            destination = Path(download_dir) / "case.json"
-            download_info.value.save_as(str(destination))
-            assert json.loads(destination.read_text(encoding="utf-8"))["short_id"] == "PE006"
-            with page.expect_download() as csv_info:
-                page.get_by_role("link", name="100例CSV", exact=True).click()
-            csv_destination = Path(download_dir) / "cases.csv"
-            csv_info.value.save_as(str(csv_destination))
-            assert len(list(csv.DictReader(io.StringIO(csv_destination.read_text(encoding="utf-8-sig"))))) == 100
-
-        page.get_by_role("button", name="收起详情", exact=True).click()
         page.set_viewport_size({"width": 390, "height": 844})
         page.goto(url, wait_until="networkidle")
-        expect(page.locator("#caseRows tr")).to_have_count(100)
+        expect(page.locator(".workflow-step")).to_have_count(8)
         assert page.evaluate("document.documentElement.scrollWidth <= window.innerWidth")
+        assert page.locator("h1").bounding_box()["x"] >= 0
         page.screenshot(path=str(artifacts / "mobile.png"), full_page=True)
-        assert not errors, errors
-        assert all(request["method"] == "GET" for request in requests)
-        assert all(request["url"].startswith(url) or request["url"].startswith("blob:") for request in requests)
         browser.close()
-    return {"status": "passed", "cases": 100, "review": 8,
-            "coordinate_matches": matched, "requests": len(requests),
-            "screenshots": [str(artifacts / "desktop.png"), str(artifacts / "mobile.png")]}
+    assert not http_errors, http_errors
+    assert not console_errors, console_errors
+    assert not page_errors, page_errors
+    assert not failed_requests, failed_requests
+    assert all(request["method"] == "GET" and request["url"].startswith(url) for request in requests)
+    report = {"status": "passed", "mode": "usage_guide", "workflow_steps": 8,
+              "os_tabs": "passed", "code_copy": "passed", "prompt_metrics": 6,
+              "stop_stage": "validation2", "requests": requests, "http_errors": http_errors,
+              "console_errors": console_errors, "page_errors": page_errors,
+              "failed_requests": failed_requests,
+              "screenshots": [str(artifacts / "desktop.png"), str(artifacts / "mobile.png")]}
+    (artifacts / "browser_report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
+    return report
 
 
 def main() -> None:
@@ -80,7 +82,9 @@ def main() -> None:
     parser.add_argument("--url", default="http://127.0.0.1:8876/site/")
     parser.add_argument("--artifacts", type=Path, default=Path(".runtime/pages_qa"))
     args = parser.parse_args()
-    print(json.dumps(check(args.url, args.artifacts), ensure_ascii=False))
+    report = check(args.url, args.artifacts)
+    print(json.dumps({key: report[key] for key in ("status", "mode", "workflow_steps", "os_tabs",
+                                                  "code_copy", "prompt_metrics", "stop_stage", "screenshots")}, ensure_ascii=False))
 
 
 if __name__ == "__main__":

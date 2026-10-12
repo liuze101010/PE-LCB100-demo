@@ -1,4 +1,4 @@
-name: Publish paper-case replay
+name: Publish framework usage guide
 
 on:
   push:
@@ -25,10 +25,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Build static replay from frozen public records
+      - name: Build static deployment and usage guide
         run: python scripts/build_pages.py --output site
-      - name: Check local-only search behavior
-        run: node --test tests/test_pages_search.cjs
+      - name: Check guide and archived interface behavior
+        run: node --test tests/test_pages_search.cjs tests/test_case_replay_search.cjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

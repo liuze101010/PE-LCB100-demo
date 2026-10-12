@@ -786,6 +786,10 @@
     {
       "path": "generated_code/md_analysis/lcb300_postprocess_closure.py",
       "reason": "Preserve a shell environment placeholder literally inside the published Python f-string."
+    },
+    {
+      "path": "generated_code/md_analysis/mcp/pelcb_mcp_server.py",
+      "reason": "Propagate the loaded recipient project config to supported child CLIs and both environment aliases; pass existing per-project input/output path arguments to postprocess CLIs."
     }
   ]
 }

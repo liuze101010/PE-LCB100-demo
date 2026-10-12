@@ -24,6 +24,8 @@ dist/
 site/
 build/
 *.egg-info/
+configs/*.local.json
+*.local.toml
 .DS_Store
 Thumbs.db
 resume_preview.png

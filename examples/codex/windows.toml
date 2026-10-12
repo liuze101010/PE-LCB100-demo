@@ -1,0 +1,12 @@
+# Replace C:/Projects/polymer-md-agent with the actual checkout directory.
+[mcp_servers.polymer_md]
+command = "C:/Projects/polymer-md-agent/.venv/Scripts/python.exe"
+args = ["C:/Projects/polymer-md-agent/science_core/generated_code/md_analysis/mcp/pelcb_mcp_server.py"]
+cwd = "C:/Projects/polymer-md-agent"
+startup_timeout_sec = 60
+tool_timeout_sec = 600
+env_vars = ["REMOTE_USER", "REMOTE_HOST", "PELCB100_REMOTE_HOME", "PELCB100_REMOTE_ROOT", "OPENAI_API_KEY", "DEEPSEEK_API_KEY", "DASHSCOPE_API_KEY", "ZHIPUAI_API_KEY", "DEEPSEEK_MODEL", "QWEN_MODEL", "GLM_MODEL"]
+
+[mcp_servers.polymer_md.env]
+PELCB_PROJECT_CONFIG = "C:/Projects/polymer-md-agent/configs/project.local.json"
+PYTHONUTF8 = "1"
