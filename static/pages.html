@@ -17,7 +17,7 @@
     </div>
     <nav class="header-links" aria-label="页面导航">
       <a class="link-button" href="#install">开始安装</a>
-      <a class="link-button" id="repositoryLink" href="https://github.com/liuze101010/PE-LCB100-demo" target="_blank" rel="noopener">GitHub 源码 ↗</a>
+      <a class="link-button" id="repositoryLink" href="https://github.com/liuze101010/polymer-agent" target="_blank" rel="noopener">GitHub 源码 ↗</a>
     </nav>
   </header>
   <main class="guide-main">
@@ -42,9 +42,9 @@
     <section id="configure" aria-labelledby="configureTitle">
       <div class="section-heading"><span class="section-kicker">第二步</span><h2 id="configureTitle">准备服务器、模型和材料输入</h2></div>
       <div class="setup-grid">
-        <article class="setup-card"><span class="card-number">01</span><h3>计算服务器</h3><p>填写SSH账户、远程工作目录、GROMACS与EMC路径，以及允许使用的CPU/GPU资源。先检查连接和软件环境，再安排计算。</p><a data-doc="remote" href="https://github.com/liuze101010/PE-LCB100-demo/blob/HEAD/docs/REMOTE_SETUP.md" target="_blank" rel="noopener">查看服务器配置 ↗</a></article>
-        <article class="setup-card"><span class="card-number">02</span><h3>规划与审计模型</h3><p>填写模型型号与接口，密钥保存在本机环境变量中。规划模型安排计算步骤，审计模型分析检查中发现的问题。</p><a data-doc="models" href="https://github.com/liuze101010/PE-LCB100-demo/blob/HEAD/docs/MODEL_SETUP.md" target="_blank" rel="noopener">查看模型配置 ↗</a></article>
-        <article class="setup-card"><span class="card-number">03</span><h3>聚合物材料</h3><p>提供材料名称、重复单元或完整链结构，并指定力场、链数和每链长度。选择适合该材料的构建与分析方法，填写输入输出目录。</p><a data-doc="materials" href="https://github.com/liuze101010/PE-LCB100-demo/blob/HEAD/docs/MATERIAL_SETUP.md" target="_blank" rel="noopener">查看材料输入 ↗</a></article>
+        <article class="setup-card"><span class="card-number">01</span><h3>计算服务器</h3><p>填写SSH账户、远程工作目录、GROMACS与EMC路径，以及允许使用的CPU/GPU资源。先检查连接和软件环境，再安排计算。</p><a data-doc="remote" href="https://github.com/liuze101010/polymer-agent/blob/HEAD/docs/REMOTE_SETUP.md" target="_blank" rel="noopener">查看服务器配置 ↗</a></article>
+        <article class="setup-card"><span class="card-number">02</span><h3>规划与审计模型</h3><p>填写模型型号与接口，密钥保存在本机环境变量中。规划模型安排计算步骤，审计模型分析检查中发现的问题。</p><a data-doc="models" href="https://github.com/liuze101010/polymer-agent/blob/HEAD/docs/MODEL_SETUP.md" target="_blank" rel="noopener">查看模型配置 ↗</a></article>
+        <article class="setup-card"><span class="card-number">03</span><h3>聚合物材料</h3><p>提供材料名称、重复单元或完整链结构，并指定力场、链数和每链长度。选择适合该材料的构建与分析方法，填写输入输出目录。</p><a data-doc="materials" href="https://github.com/liuze101010/polymer-agent/blob/HEAD/docs/MATERIAL_SETUP.md" target="_blank" rel="noopener">查看材料输入 ↗</a></article>
       </div>
       <p class="material-note">当前提供聚乙烯模拟方案。使用其他聚合物时，需配置对应的分子构建、力场、模拟条件，以及分析所需的原子选择、链编号和端点定义。框架检查输入后，再开展模拟与分析。</p>
     </section>
@@ -60,7 +60,7 @@
 codex mcp list
 codex --cd .</pre><button type="button" class="copy-button" data-copy="codexCode">复制Codex命令</button></div>
         <div class="config-facts"><div><strong>Python</strong><span id="pythonPath">.venv\Scripts\python.exe</span></div><div><strong>MCP入口</strong><span>science_core/generated_code/md_analysis/mcp/pelcb_mcp_server.py</span></div><div><strong>项目配置</strong><span>PELCB_PROJECT_CONFIG → configs/project.local.json</span></div></div>
-        <div class="doc-links"><a id="codexTemplateLink" href="https://github.com/liuze101010/PE-LCB100-demo/blob/HEAD/examples/codex/windows.toml" target="_blank" rel="noopener">Windows配置模板 ↗</a><a data-doc="codex" href="https://github.com/liuze101010/PE-LCB100-demo/blob/HEAD/docs/CODEX_SETUP.md" target="_blank" rel="noopener">完整Codex接入指南 ↗</a><a href="https://learn.chatgpt.com/docs/extend/mcp?surface=cli" target="_blank" rel="noopener">OpenAI官方MCP说明 ↗</a></div>
+        <div class="doc-links"><a id="codexTemplateLink" href="https://github.com/liuze101010/polymer-agent/blob/HEAD/examples/codex/windows.toml" target="_blank" rel="noopener">Windows配置模板 ↗</a><a data-doc="codex" href="https://github.com/liuze101010/polymer-agent/blob/HEAD/docs/CODEX_SETUP.md" target="_blank" rel="noopener">完整Codex接入指南 ↗</a><a href="https://learn.chatgpt.com/docs/extend/mcp?surface=cli" target="_blank" rel="noopener">OpenAI官方MCP说明 ↗</a></div>
       </div>
     </section>
     <section class="panel" id="prompt" aria-labelledby="promptTitle">
@@ -88,7 +88,7 @@ codex --cd .</pre><button type="button" class="copy-button" data-copy="codexCode
       <div class="panel-header"><div><span class="section-kicker">执行流程</span><h2 id="workflowTitle">从任务描述到计算结果</h2></div></div>
       <div class="workflow-list" id="workflow"></div>
     </section>
-    <section class="next-links" aria-label="更多说明"><a data-doc="readme" href="https://github.com/liuze101010/PE-LCB100-demo/blob/HEAD/README_CN.md" target="_blank" rel="noopener">完整使用说明 ↗</a><a data-doc="source" href="https://github.com/liuze101010/PE-LCB100-demo/tree/HEAD/science_core" target="_blank" rel="noopener">浏览科学工具源码 ↗</a></section>
+    <section class="next-links" aria-label="更多说明"><a data-doc="readme" href="https://github.com/liuze101010/polymer-agent/blob/HEAD/README_CN.md" target="_blank" rel="noopener">完整使用说明 ↗</a><a data-doc="source" href="https://github.com/liuze101010/polymer-agent/tree/HEAD/science_core" target="_blank" rel="noopener">浏览科学工具源码 ↗</a></section>
     <p id="copyFeedback" class="copy-feedback" role="status" aria-live="polite"></p>
   </main>
   <footer><span>面向聚合物分子动力学模拟的智能体框架</span><span>本地部署与使用指南</span></footer>

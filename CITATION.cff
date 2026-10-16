@@ -5,5 +5,5 @@ type: software
 version: 1.2.2
 date-released: 2026-10-12
 license: MIT
-repository-code: "https://github.com/liuze101010/PE-LCB100-demo"
+repository-code: "https://github.com/liuze101010/polymer-agent"
 abstract: "A locally deployable agent framework connecting natural-language tasks to registered polymer construction, molecular dynamics, analysis and independent validation tools through MCP."

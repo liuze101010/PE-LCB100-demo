@@ -4,15 +4,15 @@
 
 默认分析结果为**密度、Rg、Ree、链形状、RDF和MSD**。不同聚合物使用对应的分子构建方法、力场、主链与端点定义和校验规则。
 
-[使用指南](https://liuze101010.github.io/PE-LCB100-demo/) · [版本下载](https://github.com/liuze101010/PE-LCB100-demo/releases)
+[使用指南](https://liuze101010.github.io/polymer-agent/) · [版本下载](https://github.com/liuze101010/polymer-agent/releases)
 
 ## 本地安装
 
 使用Python 3.12，下载源码并解压，或运行：
 
 ```bash
-git clone https://github.com/liuze101010/PE-LCB100-demo.git
-cd PE-LCB100-demo
+git clone https://github.com/liuze101010/polymer-agent.git
+cd polymer-agent
 python -m venv .venv
 ```
 

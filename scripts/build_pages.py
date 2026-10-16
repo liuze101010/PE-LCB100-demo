@@ -222,7 +222,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=ROOT / "site")
     parser.add_argument("--repository", default="https://github.com/" + os.environ.get(
-        "GITHUB_REPOSITORY", "liuze101010/PE-LCB100-demo"))
+        "GITHUB_REPOSITORY", "liuze101010/polymer-agent"))
     parser.add_argument("--revision", default="HEAD", help="GitHub source revision, default: HEAD")
     parser.add_argument("--include-archive", action="store_true", help="Also export retained case records under archive/")
     args = parser.parse_args()
